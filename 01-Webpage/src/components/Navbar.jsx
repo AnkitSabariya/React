@@ -5,7 +5,7 @@ import { RiMenu5Fill } from "react-icons/ri";
 
 function Navbar() {
   return (
-    <nav className="bg-white w-[70%] mx-auto py-4 sm:py-9">
+    <nav className="bg-white w-[90%] lg:w-[70%] mx-auto py-4 sm:py-9">
       <div className="flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center gap-2">
@@ -16,7 +16,7 @@ function Navbar() {
         </div>
 
         {/* Desktop Links */}
-        <div className="hidden sm:flex items-center gap-6 text-[#4E5866] space-x-6 text-base font-semibold">
+        <div className="hidden lg:flex items-center gap-6 text-[#4E5866] space-x-6 text-base font-semibold">
           <a href="">Home</a>
           <a href="">Products</a>
           <a href="">About</a>
@@ -26,7 +26,7 @@ function Navbar() {
         </div>
 
         {/* Mobile Menu Icon */}
-        <div className="block sm:hidden">
+        <div className="block lg:hidden">
           <RiMenu5Fill size={28} className="text-[#4E5866] cursor-pointer" />
         </div>
       </div>

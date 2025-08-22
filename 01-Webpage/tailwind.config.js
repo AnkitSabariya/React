@@ -11,6 +11,12 @@ export default {
         inter: ['Inter', 'sans-serif'],
         roboto: ['Roboto', 'sans-serif'],
       },
+       boxShadow: {
+        mysh: "0 10px 15px rgba(0,0,0,0.3)",
+      },
+       animation: {
+        slowspin: 'spin 10s linear infinite', // 10 seconds per rotation
+      },
     },
   },
   plugins: [],
