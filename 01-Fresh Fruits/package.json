@@ -1,5 +1,5 @@
 {
-  "name": "webpage",
+  "name": "fresh-fruits",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -12,6 +12,7 @@
   "dependencies": {
     "@expo-google-fonts/averia-serif-libre": "^0.4.1",
     "@tailwindcss/postcss": "^4.1.12",
+    "aos": "^2.3.4",
     "expo-app-loading": "^2.1.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
