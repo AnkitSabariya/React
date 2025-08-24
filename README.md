@@ -1,6 +1,6 @@
-# 🚀 Ankit's React Projects Collection
+# <img src="https://techstack-generator.vercel.app/react-icon.svg" alt="React" width="48" height="48" style="vertical-align:middle;" /> React Journey
 
-Welcome to my **React practice projects repo**!  
+Welcome to my **React practice projects repo**.  
 All projects follow a **clean folder structure**.  
 Projects are listed first, tasks & exercises are organized in a **dropdown**.  
 
@@ -8,11 +8,15 @@ Projects are listed first, tasks & exercises are organized in a **dropdown**.
 
 ---
 
-| #  | Project / Task Name                               | Live Demo                                         | About                     |
+## 🚀 Projects
+
+| #  | Project                              | Live Demo                                         | About                     |
 | -- | ------------------------------------------------- | ------------------------------------------------ | ------------------------- |
 | 01 | 🍎  [Fruits Project](https://github.com/AnkitSabariya/React/tree/main/Projects/01_Fresh-Fruits) | 🔗 [Live Demo](https://fresh-fruits-chi.vercel.app/) | props & Components        |
 
-## 📝 React Practice Tasks (Dropdown)
+---
+
+## 📝 React Exercises (Dropdown)
 
 <details>
   <summary>🔽 Click to view All React Topics</summary>
@@ -37,4 +41,3 @@ Not all projects and tasks are fully complete yet — more will be added as I pr
 - Advanced React topics: Under development 🚀  
 
 Stay tuned for updates!
-
