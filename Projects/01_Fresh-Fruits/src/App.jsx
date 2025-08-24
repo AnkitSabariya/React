@@ -17,9 +17,9 @@ function App() {
       <Navbar />
       <Herosec />
 
-      <h1 className="container mx-auto text-center md:text-left md:pl-24 text-2xl font-bold mt-32">OUR MENU</h1>
+      <h1 className="container mx-auto text-center md:text-left md:pl-24 text-2xl font-bold mt-12 md:mt-32">OUR MENU</h1>
       {/* parent k  */}
-      <div className="flex flex-col md:flex-row flex-wrap items-center  gap-8 justify-center mt-12">
+      <div className=" container mx-auto px-4 md:px-8 lg:px-16 flex flex-col md:flex-row flex-wrap items-center  gap-8 justify-center mt-12">
         <Menufruits img={Apple} title="Fresh Red Apples" price="$3.99" />
         <Menufruits img={Orange} title="Fresh Oranges" price="$4.99" />
         <Menufruits img={Avocado} title="Fresh Avocado" price="$5.99" />

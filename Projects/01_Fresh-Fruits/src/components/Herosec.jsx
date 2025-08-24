@@ -6,7 +6,7 @@ import { IoBagHandleOutline } from "react-icons/io5";
 function Herosec() {
   return (
   
-      <div className="flex flex-col md:flex-row w-full max-w-[1500px] md:justify-between items-center mx-auto font-sans relative mt-10 px-4 md:px-8 lg:px-16">
+      <div className="flex flex-col md:flex-row container mx-auto px-4 md:px-8 lg:px-16   rounded-[30px] bg-cover   md:justify-between items-center  font-sans relative mt-10 ">
 
       {/* Left Section */}
       <div className="relative md:w-1/2 text-center md:text-left">

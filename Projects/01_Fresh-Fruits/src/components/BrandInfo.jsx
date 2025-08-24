@@ -42,7 +42,7 @@ export default function BrandInfo1() {
 export function BrandInfo2() {
   return (
     <section className="bg-white py-12">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2    px-4 md:px-8 lg:px-16 gap-8">
+      <div className="container mx-auto px-4 md:px-8 lg:px-16 grid grid-cols-1 md:grid-cols-2     gap-8">
         {/* Left Image */}
         <div className="w-[300px] order-2 md:w-[400px] mx-auto md:h-[480px] flex justify-center items-center">
           <img
@@ -80,8 +80,9 @@ export function BrandInfo2() {
 
 export function BrandInfo3() {
   return (
+     <div className="container mx-auto px-4 md:px-8 lg:px-16">
     <section
-      className="bg-[#FFF5F0] container mx-auto   rounded-[30px] bg-cover w-[90%] md:max-w-[1400px] bg-fixed   bg-center"
+      className="bg-[#FFF5F0]    rounded-[30px] bg-cover bg-fixed   bg-center"
       style={{ backgroundImage: `url(${FruitImage3})` }}
     >
       <div className=" grid grid-cols-1 md:grid-cols-2     gap-8">
@@ -104,5 +105,6 @@ export function BrandInfo3() {
         </div>
       </div>
     </section>
+    </div>
   );
 }
