@@ -1,13 +1,13 @@
 import React from "react";
 
-function Card({properties}) {
+function Card({properties = []}) {
   return (
       // Key unic id aapvi pde gme te diffrent name k specific uniq id
       // jo id n hoy to map thi loop me i pass krvi index aapi devana
     <div>
-      {properties.map(({element}) => {
+      {properties.map((element) => {
       return(
-        <div className="" key={element.id}>
+        <div  key={element.id}>
           <img src={element.img_url} alt="" width="40%" height="50%" />
           <h1>Name : {element.name}</h1>
           <span>Rating : {element.rating}</span>
