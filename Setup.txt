@@ -1,0 +1,65 @@
+React Productivity Setup (Vite + Tailwind)
+
+Fast setup for React development using Vite + Tailwind + VSCode productivity tools.
+
+--- Aliases ---
+
+Mac (zsh/bash)
+1. Open Terminal
+   Cmd + Space → Terminal
+2. Open config file
+   nano ~/.zshrc   # for zsh
+   nano ~/.bashrc  # for bash
+3. Add aliases
+   alias rvite="npm create vite@latest"
+   alias dev="npm run dev"
+   alias build="npm run build"
+4. Save & exit
+   Ctrl + O → Enter → Ctrl + X
+5. Reload config
+   source ~/.zshrc
+
+Windows (PowerShell)
+1. Open PowerShell
+   Start → PowerShell
+2. Open profile file
+   notepad $PROFILE
+3. Add aliases
+   Set-Alias rvite "npm create vite@latest"
+   Set-Alias dev "npm run dev"
+   Set-Alias build "npm run build"
+4. Save & restart PowerShell
+
+--- Terminal Shortcuts ---
+Action                Mac                 Windows
+New terminal          Cmd + Shift + `     Ctrl + Shift + `
+Switch terminal tab   Cmd + ↑ / ↓         Ctrl + ↑ / ↓
+Kill terminal         Cmd + Shift + W     Ctrl + Shift + W
+Clear terminal        Cmd + K            Ctrl + L
+
+--- VSCode Extensions (Recommended) ---
+Tailwind CSS IntelliSense
+Headwind
+ES7+ React Snippets
+Prettier
+Auto Rename Tag
+Auto Import
+Path Intellisense
+Error Lens
+
+--- Usage ---
+# Create Vite React app
+rvite my-app
+
+# Go to project folder
+cd my-app
+
+# Start dev server
+dev
+
+# Build production
+build
+
+--- Tips ---
+- Use multiple terminal tabs for dev, testing, DB simultaneously.
+- Combine with VSCode shortcuts to speed up workflow.
