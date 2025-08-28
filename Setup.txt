@@ -11,9 +11,24 @@ Mac (zsh/bash)
    nano ~/.zshrc   # for zsh
    nano ~/.bashrc  # for bash
 3. Add aliases
-   alias rvite="npm create vite@latest"
-   alias dev="npm run dev"
-   alias build="npm run build"
+  # Dev server start karne ke liye
+  alias d="npm run d"
+
+# Production build ke liye
+  alias b="npm run b"
+
+ # Dependencies install ke liye
+ alias i="npm install"
+
+ # Naya package add karne ke liye
+ alias a="npm install"
+
+ # Update sab packages
+ alias u="npm update"
+
+# Start server (alternative)
+ lias s="npm start"
+
 4. Save & exit
    Ctrl + O → Enter → Ctrl + X
 5. Reload config
@@ -37,29 +52,3 @@ Switch terminal tab   Cmd + ↑ / ↓         Ctrl + ↑ / ↓
 Kill terminal         Cmd + Shift + W     Ctrl + Shift + W
 Clear terminal        Cmd + K            Ctrl + L
 
---- VSCode Extensions (Recommended) ---
-Tailwind CSS IntelliSense
-Headwind
-ES7+ React Snippets
-Prettier
-Auto Rename Tag
-Auto Import
-Path Intellisense
-Error Lens
-
---- Usage ---
-# Create Vite React app
-rvite my-app
-
-# Go to project folder
-cd my-app
-
-# Start dev server
-dev
-
-# Build production
-build
-
---- Tips ---
-- Use multiple terminal tabs for dev, testing, DB simultaneously.
-- Combine with VSCode shortcuts to speed up workflow.
