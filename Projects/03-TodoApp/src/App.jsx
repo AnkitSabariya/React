@@ -11,16 +11,28 @@ function App() {
   const [tasks, setTask] = useState([]);
   // This State For Store index beacause This Is Aysnc
   const [editIndex, setEditIndex] = useState(null);
+  let checked = {
+    textDecoration: "line-through",
+  };
 
   // Todo handleAdd
-  const handleAdd = () => {
+  const handleAddOrUpdate = () => {
     if (input.trim() === "") return alert("Your Tasks Input Is Empty");
-
-    let exits = tasks.includes(input);
-    if (exits) return alert("This all Ready Exits");
-
-    setTask([...tasks, input]);
-    setInput("");
+    // Todo Add
+    if (editIndex == null) {
+      let exits = tasks.includes(input);
+      if (exits) return alert("This all Ready Exits");
+      setTask([...tasks, input]);
+      setInput("");
+    }
+    // Todo Update
+    else {
+      let update = [...tasks];
+      update[editIndex] = input;
+      setTask(update);
+      setInput("");
+      setEditIndex(null); // Null because Set Defult and Edit Mope off
+    }
   };
   // Todo handleDelete
   const handleDelete = (index) => {
@@ -36,14 +48,6 @@ function App() {
     setInput(tasks[index]);
     setEditIndex(index);
   };
-  // Todo handleUpdate
-  const handleUpdate = () => {
-    let update = [...tasks];
-    update[editIndex] = input;
-    setTask(update);
-    setInput("")
-    setEditIndex(null); // Null because Set Defult and Edit Mope off
-  };
 
   return (
     <>
@@ -54,18 +58,18 @@ function App() {
           onChange={(e) => setInput(e.target.value)}
           value={input}
         />
-        <button onClick={handleAdd}>
-          Add <IoAdd size={18} />
-        </button>
-        <button type="" className="" onClick={handleUpdate}>
-          Update <FaSave size={18} />
+
+        <button onClick={handleAddOrUpdate}>
+          {editIndex === null ? "Add" : "Update"}
+          {editIndex === null ? <IoAdd size={18} /> : <FaSave size={18} />}
         </button>
       </header>
       <footer className="">
         {tasks.map((e, i) => {
           return (
             <ul key={i} className="list">
-              <li>{e}</li>
+              <input type="checkbox" />
+              <li style={checked}>{e}</li>
               <FiEdit size={18} onClick={() => handleEdit(i)} />
               <MdDelete size={18} onClick={() => handleDelete(i)} />
             </ul>
