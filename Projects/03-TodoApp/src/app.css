@@ -1,4 +1,259 @@
-.list{
-    display: flex;
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* App Container */
+.app-container {
+  width: 100%;
+ width: 500px;
+  min-width: 320px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Header */
+.app-header {
+  padding: 25px;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  text-align: center;
+}
+
+.app-header h1 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Input Container */
+.input-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.input-container input {
+  flex: 1;
+  padding: 12px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-container input:focus {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+.add-btn {
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  background: white;
+  color: #6a11cb;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-btn:hover {
+  background: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Tasks Container */
+.tasks-container {
+  padding: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+  width: 100%;
+  word-break: break-word;
+}
+
+/* Scrollbar */
+.tasks-container::-webkit-scrollbar {
+  width: 6px;
+}
+.tasks-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+.tasks-container::-webkit-scrollbar-thumb {
+  background: #c3cfe2;
+  border-radius: 10px;
+}
+.tasks-container::-webkit-scrollbar-thumb:hover {
+  background: #a7b5d3;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  color: #888;
+  padding: 40px 20px;
+  font-size: 16px;
+  width: 100%;       /* Fixed width */
+  box-sizing: border-box;
+  word-break: break-word;
+}
+
+/* Tasks List */
+.tasks-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+  width: 100%;   /* Fixed width */
+  box-sizing: border-box;
+}
+
+.task-item:hover {
+  background: #e9ecef;
+}
+
+.task-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.task-checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.task-text {
+  flex: 1;
+  font-size: 16px;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.task-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.edit-btn {
+  color: #17a2b8;
+}
+
+.edit-btn:hover {
+  background: rgba(23, 162, 184, 0.1);
+  transform: scale(1.1);
+}
+
+.delete-btn {
+  color: #dc3545;
+}
+
+.delete-btn:hover {
+  background: rgba(220, 53, 69, 0.1);
+  transform: scale(1.1);
+}
+
+/* Footer */
+.app-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  background: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+}
+
+.clear-all-btn {
+  background: #dc3545;
+  color: white;
+  padding: 8px 16px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.clear-all-btn:hover {
+  background: #c82333;
+  transform: translateY(-2px);
+}
+
+.progress {
+  font-size: 14px;
+  font-weight: 500;
+  color: #6c757d;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .app-container {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .input-container {
+    flex-direction: column;
+  }
+
+  .task-item {
+    flex-direction: column;
+    align-items: flex-start;
     gap: 10px;
+  }
+
+  .task-actions {
+    align-self: flex-end;
+  }
+
+  .app-footer {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
 }
