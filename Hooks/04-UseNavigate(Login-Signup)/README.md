@@ -8,7 +8,7 @@ This project uses **localStorage** for storing user credentials (for demo purpos
 
 ## 🌍 Live Demo
 
-🔗 **Live Demo:** [Click here to view](https://fresh-fruits-chi.vercel.app/)
+🔗 **Live Demo:** [Click here to view](https://react-delta-amber.vercel.app/)
 
 ---
 
