@@ -1,12 +1,29 @@
-# React + Vite
+# 🔐 React Login, SignUp & Home Flow (with Tailwind CSS + React Router)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A **complete authentication UI flow** built using **React, Tailwind CSS, and React Router DOM**.  
+It includes a **Login page**, **SignUp page**, and a **Home/Dashboard page** after successful authentication.  
+This project uses **localStorage** for storing user credentials (for demo purposes only).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌍 Live Demo
 
-## Expanding the ESLint configuration
+🔗 **Live Demo:** [Click here to view](https://fresh-fruits-chi.vercel.app/)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🚀 Features
+
+✅ Modern, responsive UI built with **Tailwind CSS**  
+✅ **Login Page** – existing users can sign in  
+✅ **SignUp Page** – new users can register  
+✅ **Home Page** – visible only after successful login  
+✅ **Logout Feature** – redirects back to login  
+✅ Credentials stored in **localStorage** (demo only, not secure for production)  
+✅ **React Router DOM** for navigation  
+✅ Clean hover animations & 3D card effect  
+✅ Beginner-friendly authentication flow  
+
+---
+
+

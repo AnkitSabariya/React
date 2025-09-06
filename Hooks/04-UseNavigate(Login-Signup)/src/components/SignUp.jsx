@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 const SignUp = () => {
   const [signupName, setSignupName] = useState("");
   const [signupPassword, setSignupPassword] = useState("");
+  let navigate = useNavigate();
   const handleSubmit = () => {
    if (signupName.trim() !== "" && signupPassword.trim() !== "") {
       alert("Account Create Succefully...");
@@ -9,6 +11,7 @@ const SignUp = () => {
       localStorage.setItem("password", JSON.stringify(signupPassword));
       setSignupName("");
       setSignupPassword("");
+      navigate("/")
     } else {
       alert("Invalid Input");
     }
