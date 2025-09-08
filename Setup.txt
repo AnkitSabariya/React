@@ -1,5 +1,5 @@
 React Productivity Setup (Vite + Tailwind)
-
+ai Invoice Maker
 Fast setup for React development using Vite + Tailwind + VSCode productivity tools.
 
 --- Aliases ---
