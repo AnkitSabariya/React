@@ -10,26 +10,39 @@ Projects are listed first, tasks & exercises are organized in a **dropdown**.
 
 ## 🚀 Projects
 
-| #   | Project                                                                                        | Live Demo                                            | About              |
-| --- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------- | ------------------ |
-| 01  | 🍎 [Fruits Project](https://github.com/AnkitSabariya/React/tree/main/Projects/01_Fresh-Fruits) | 🔗 [Live Demo](https://fresh-fruits-chi.vercel.app/) | props & Components |
+| #   | Project                                                                                          | Live Demo                                            | About                             |
+| --- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------- | --------------------------------- |
+| 01  | 🍎 [Fruits Project](https://github.com/AnkitSabariya/React/tree/main/Projects/01_Fresh-Fruits)   | 🔗 [Live Demo](https://fresh-fruits-chi.vercel.app/) | Props & components basics         |
+| 02  | 🌙 [LightDarkMode](https://github.com/AnkitSabariya/React/tree/main/Projects/02-LightDarkMode)   | 🔗 [Live Demo](https://light-dark-mode-ten.vercel.app/) | Dark/Light theme toggle with state |
+| 03  | ✅ [TodoApp](https://github.com/AnkitSabariya/React/tree/main/Projects/03-TodoApp)               | 🔗 [Live Demo](https://todo-app-react-gamma.vercel.app/) | Manage tasks with state & props   |
+|     | **⚡ Hooks-based Projects**                                                                       |                                                      |                                   |
+| 04  | 🔢 [useState Counter](https://github.com/AnkitSabariya/React/tree/main/Hooks/01-Usestate(counter)) | 🔗 [Live Demo](https://use-state-counter.vercel.app/) | Basic counter using **useState**  |
+| 05  | 🃏 [useEffect LoadCards](https://github.com/AnkitSabariya/React/tree/main/Hooks/02-UseEffect(LoadCards)) | 🔗 [Live Demo](https://use-effect-loadcards.vercel.app/) | Fetch & render cards with **useEffect** |
+| 06  | 🎬 [useRef Video Player](https://github.com/AnkitSabariya/React/tree/main/Hooks/03-UseRef(VideoPlayer)) | 🔗 [Live Demo](https://use-ref-videoplayer.vercel.app/) | Control video with **useRef**     |
+| 07  | 🔑 [useNavigate Auth](https://github.com/AnkitSabariya/React/tree/main/Hooks/04-UseNavigate(Login-Signup)) | 🔗 [Live Demo](https://use-navigate-auth.vercel.app/) | Programmatic navigation with login/signup |
 
 ---
 
-## 📝 React Exercises (Dropdown)
+## ⚛️ React Exercises (Dropdown)
 
 <details>
-  <summary>🔽 Click to view All React Topics</summary>
+  <summary>📚 Core React Topics</summary>
 
-
-| #   | Task Name                                                                        | About             |
-| --- | -------------------------------------------------------------------------------- | ----------------- |
-| 00  | [Introduction](https://github.com/AnkitSabariya/React/tree/main/00-Introduction) | Basics & Commands |
+| #   | Task Name                                                                                 | About                                      |
+| --- | ----------------------------------------------------------------------------------------- | ------------------------------------------ |
+| 00  | [Introduction](https://github.com/AnkitSabariya/React/tree/main/00-Introduction)          | React basics setup & commands              |
+| 01  | [Map-Filter-Reduce](https://github.com/AnkitSabariya/React/tree/main/01-Map-Filter-Reduce) | Array methods for data transformation      |
+| 02  | [Spread-And-Merge](https://github.com/AnkitSabariya/React/tree/main/02-Spread-And-Merge)   | Spread operator & merging objects/arrays   |
+| 03  | [Props](https://github.com/AnkitSabariya/React/tree/main/03-Props)                        | Passing & reusing data via props           |
+| 04  | [Derived-And-Object-State](https://github.com/AnkitSabariya/React/tree/main/04-Derived-And-Object-State) | Managing derived & object-based state      |
+| 05  | [Routing](https://github.com/AnkitSabariya/React/tree/main/05-Routing)                    | Navigation with React Router               |
+| 06  | [Controlled_UnControlled](https://github.com/AnkitSabariya/React/tree/main/06-Controlled_UnControlled) | Controlled vs uncontrolled components      |
 
 </details>
 
+
 <details>
-  <summary>⚡ Hooks Exercises - 🔽 Click to expand</summary>
+  <summary>⚡ Hooks Exercises </summary>
 
 | #   | Task Name                                                                                                           | About                       |
 | --- | ------------------------------------------------------------------------------------------------------------------- | --------------------------- |
