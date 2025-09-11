@@ -6,11 +6,7 @@ Users can **add, edit, delete, and view products**, and all data is stored local
 This project is perfect for beginners learning **React (useState, props, event handling, localStorage)** and for building a small **dashboard-like app**.  
 
 ---
-
-## 🌐 Live Demo  
-👉 [Click Here to Try](https://your-deploy-link.vercel.app)  
-
----
+🔗 **Live Demo:** [Click here to view](https://react-3b27.vercel.app/) 
 
 ## 📸 Preview  
 

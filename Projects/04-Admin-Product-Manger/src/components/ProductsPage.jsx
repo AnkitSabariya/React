@@ -1,4 +1,4 @@
-import { FaStar, FaRupeeSign, FaShoppingCart } from "react-icons/fa";
+import { FaStar, FaRupeeSign, FaShoppingCart, FaBoxOpen } from "react-icons/fa";
 
 export default function ProductsPage({ products }) {
   return (
@@ -7,9 +7,21 @@ export default function ProductsPage({ products }) {
         ✨ Our Premium Products
       </h1>
 
-      <div className="grid container mx-auto gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {products.map((e, i) => {
-          return (
+      {products.length === 0 ? (
+        // ================= EMPTY STATE =================
+        <div className="flex flex-col items-center justify-center py-20 text-center text-gray-600">
+          <FaBoxOpen className="text-6xl text-gray-400 mb-4" />
+          <h2 className="text-2xl font-semibold text-gray-700">
+            No Products Available
+          </h2>
+          <p className="mt-2 text-gray-500">
+            Please check back later or add new products in the Admin Panel.
+          </p>
+        </div>
+      ) : (
+        // ================= PRODUCT GRID =================
+        <div className="grid container mx-auto gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {products.map((e, i) => (
             <div
               key={i}
               className="overflow-hidden transition-all duration-500 bg-white shadow-lg rounded-2xl hover:shadow-2xl hover:-translate-y-2 group"
@@ -36,7 +48,7 @@ export default function ProductsPage({ products }) {
                   <span className="flex items-center gap-1 text-lg font-bold text-indigo-600">
                     <FaRupeeSign /> {e.price}
                   </span>
-                  <span className="flex items-center gap-1 text-yellow-500 font-medium">
+                  <span className="flex items-center gap-1 font-medium text-yellow-500">
                     <FaStar /> {e.rating}
                   </span>
                 </div>
@@ -49,9 +61,9 @@ export default function ProductsPage({ products }) {
                 </button>
               </div>
             </div>
-          );
-        })}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
