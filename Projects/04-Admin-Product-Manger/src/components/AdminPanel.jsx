@@ -1,16 +1,24 @@
 import React, { useState } from "react";
-import { FaEdit, FaTrash, FaStar, FaRupeeSign, FaPlus } from "react-icons/fa";
+import {
+  FaEdit,
+  FaTrash,
+  FaStar,
+  FaRupeeSign,
+  FaPlus,
+  FaBoxes,
+  FaSave,
+} from "react-icons/fa";
 
-export default function AdminPanel({products,setProduct}) {
+export default function AdminPanel({ products, setProduct }) {
   let [title, setTitle] = useState("");
   let [price, setPrice] = useState(0);
   let [rating, setRating] = useState(0);
   let [dec, setDec] = useState("");
   let [imgUrl, setImgURl] = useState("");
+  let [editIndex, setEditIndex] = useState(null);
 
- 
   // product Add
-  const handleAddProduct = (e) => {
+  const handleAddOrUpdateProduct = (e) => {
     e.preventDefault();
     if (
       title.trim() === "" ||
@@ -20,15 +28,30 @@ export default function AdminPanel({products,setProduct}) {
       imgUrl.trim() === ""
     )
       return alert("Something is Invalid");
-    let newproduct = { title, price, rating, dec, imgUrl };
-    // let exits = products.find((e) => e.title === title || e.imgUrl === imgUrl);
-    // if (exits) {
-    //   alert("title Same");
-    // } else {
-      let updatedProducts = [...products, newproduct]; // Because delay 1 product problem first state update with latest value then state
-      setProduct(updatedProducts);
-      localStorage.setItem("items", JSON.stringify(updatedProducts));
-    // }
+    if (editIndex == null) {
+      let newproduct = { title, price, rating, dec, imgUrl };
+      let exits = products.find(
+        (e) => e.title.toLowerCase() === title.toLowerCase() || e.imgUrl === imgUrl
+      );
+      if (exits) {
+        alert("title Same");
+      } else {
+        let addProducts = [...products, newproduct]; // Because delay 1 product problem first state update with latest value then state
+        setProduct(addProducts);
+        localStorage.setItem("items", JSON.stringify(addProducts));
+      }
+    } else {
+      let saveproduct = [...products]
+      saveproduct[editIndex].title = title 
+      saveproduct[editIndex].price = price 
+      saveproduct[editIndex].rating = rating 
+      saveproduct[editIndex].dec = dec 
+      saveproduct[editIndex].imgUrl = imgUrl 
+      setProduct(saveproduct)
+      setEditIndex(null)
+      localStorage.setItem("items", JSON.stringify(saveproduct));
+      
+    }
 
     // Empty Inputs
     setTitle("");
@@ -38,50 +61,73 @@ export default function AdminPanel({products,setProduct}) {
     setImgURl("");
   };
   // Deleate Product
-const handleDelete = (index) =>{
-let filter = products.filter((e,i)=> i != index)
-setProduct(filter)
-localStorage.setItem("items", JSON.stringify(filter));
-
-}
-// console.log(pro);
+  const handleDelete = (index) => {
+    let filter = products.filter((e, i) => i != index);
+    setProduct(filter);
+    setEditIndex(null)
+    localStorage.setItem("items", JSON.stringify(filter));
+  };
+  // Edit Product
+  const handleEdit = (index) => {
+    setTitle(products[index].title);
+    setPrice(products[index].price);
+    setRating(products[index].rating);
+    setDec(products[index].dec);
+    setImgURl(products[index].imgUrl);
+    setEditIndex(index);
+  };
+  // console.log(pro);
 
   return (
-    <div className="min-h-screen p-10 overflow-hidden bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200">
-      <div className="grid gap-10 md:grid-cols-2">
+    <div className="h-screen overflow-y-auto bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 p-6 sm:p-10">
+      
+      {/* ================= MAIN HEADING ================= */}
+      <div className="flex flex-col items-center mb-12">
+        <div className="flex items-center gap-3">
+          <FaBoxes className="text-indigo-600 text-4xl drop-shadow-md" />
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-800 drop-shadow-sm">
+            Admin Panel
+          </h1>
+        </div>
+        <p className="mt-2 text-gray-600 text-center text-sm sm:text-base">
+          Manage your store products – add, edit, or remove with ease 🚀
+        </p>
+      </div>
+
+      <div className="grid gap-8 md:gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        
         {/* ================= FORM SECTION ================= */}
-        <div className="relative p-8 rounded-2xl shadow-lg bg-white/80 backdrop-blur-xl border border-gray-200 hover:scale-[1.01] transition-transform">
-          <h2 className="mb-6 text-2xl font-bold text-gray-800">
-            Add / Edit Product
+        <div className="relative p-6 sm:p-8 rounded-2xl shadow-lg bg-white/90 backdrop-blur-xl border border-gray-200 hover:scale-[1.01] transition-transform">
+          <h2 className="mb-6 text-xl sm:text-2xl font-bold text-gray-800">
+            {editIndex == null ? "➕ Add Product" : "✏️ Edit Product"}
           </h2>
-          <form className="grid gap-6">
-            {/* Input */}
+          <form className="grid gap-4 sm:gap-6">
             <input
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               type="text"
               placeholder="Product Title"
-              className="p-3 text-gray-800 placeholder-gray-400 transition border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="p-3 text-gray-800 placeholder-gray-400 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
             <input
               value={price}
-              onChange={(e) => setPrice(e.target.value)}
+              onChange={(e) => setPrice(Number(e.target.value))}
               type="number"
               placeholder="Price"
-              className="p-3 text-gray-800 placeholder-gray-400 transition border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="p-3 text-gray-800 placeholder-gray-400 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <input
               value={rating}
-              onChange={(e) => setRating(e.target.value)}
+              onChange={(e) => setRating(Number(e.target.value))}
               type="number"
               placeholder="Rating (1-5)"
-              className="p-3 text-gray-800 placeholder-gray-400 transition border rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              className="p-3 text-gray-800 placeholder-gray-400 border rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
             />
             <textarea
               value={dec}
               onChange={(e) => setDec(e.target.value)}
               placeholder="Description"
-              className="p-3 text-gray-800 placeholder-gray-400 transition border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              className="p-3 text-gray-800 placeholder-gray-400 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
               rows="3"
             ></textarea>
             <input
@@ -89,65 +135,74 @@ localStorage.setItem("items", JSON.stringify(filter));
               onChange={(e) => setImgURl(e.target.value)}
               type="url"
               placeholder="Image URL"
-              className="p-3 text-gray-800 placeholder-gray-400 transition border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="p-3 text-gray-800 placeholder-gray-400 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
 
-            {/* Button */}
             <button
-              onClick={(e) => handleAddProduct(e)}
+              onClick={(e) => handleAddOrUpdateProduct(e)}
               type="submit"
-              className="flex items-center justify-center gap-2 px-5 py-3 text-lg font-semibold text-white transition-all shadow-md rounded-xl bg-gradient-to-r from-indigo-600 to-blue-600 hover:scale-105 hover:shadow-lg hover:from-indigo-700 hover:to-blue-700"
+              className="flex items-center justify-center gap-2 px-4 py-3 text-lg font-semibold text-white rounded-xl shadow-md bg-gradient-to-r from-indigo-600 to-blue-600 hover:scale-105 hover:shadow-lg hover:from-indigo-700 hover:to-blue-700"
             >
-              <FaPlus /> Add Product
+              {editIndex == null ? (
+                <>
+                  <FaPlus /> Add Product
+                </>
+              ) : (
+                <>
+                 <FaSave /> Update Product
+                </>
+              )}
             </button>
           </form>
         </div>
 
         {/* ================= PRODUCT LIST SECTION ================= */}
-        <div>
-          <h2 className="mb-6 text-2xl font-bold text-gray-800">
-            Product List
+        <div className="col-span-1 md:col-span-2 lg:col-span-2 bg-white/90 backdrop-blur-lg border border-gray-200 rounded-2xl p-6 shadow-lg max-h-[600px] overflow-y-auto custom-scrollbar">
+          <h2 className="mb-6 text-xl sm:text-2xl font-bold text-gray-800 flex items-center gap-2">
+            📦 Product List
           </h2>
-          <div className="space-y-6">
-            {products.map((e, i) => {
-              return (
-                <div
-                  key={i}
-                  className="flex items-center justify-between p-5 rounded-2xl bg-white/90 backdrop-blur-lg border border-gray-200 shadow-md transition hover:scale-[1.02] hover:shadow-xl"
-                >
-                  <div className="flex items-center gap-5">
-                    <img
-                      src={e.imgUrl}
-                      alt="product"
-                      className="object-cover w-20 h-20 border border-gray-200 shadow-sm rounded-xl"
-                    />
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-800">
-                        {e.title}
-                      </h3>
-                      <p className="flex items-center gap-4 text-sm text-gray-600">
-                        <span className="flex items-center gap-1 font-semibold text-emerald-600">
-                          <FaRupeeSign />
-                          {e.price}
-                        </span>
-                        <span className="flex items-center gap-1 font-semibold text-yellow-500">
-                          <FaStar /> {e.rating}
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex gap-3">
-                    <button  className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-indigo-600 transition border border-indigo-400 rounded-lg hover:bg-indigo-600 hover:text-white hover:scale-105">
-                      <FaEdit /> Edit
-                    </button>
-                    <button onClick={()=> handleDelete(i)} className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white transition rounded-lg bg-rose-500 hover:bg-rose-600 hover:scale-105">
-                      <FaTrash /> Delete
-                    </button>
+          <div className="space-y-5 sm:space-y-6">
+            {products.map((e, i) => (
+              <div
+                key={i}
+                className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-white to-gray-50 border border-gray-200 shadow-md transition hover:scale-[1.02] hover:shadow-xl"
+              >
+                <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5">
+                  <img
+                    src={e.imgUrl}
+                    alt="product"
+                    className="object-cover w-full sm:w-20 h-40 sm:h-20 border border-gray-200 shadow-sm rounded-xl"
+                  />
+                  <div className="text-center sm:text-left">
+                    <h3 className="text-lg font-semibold text-gray-800">
+                      {e.title}
+                    </h3>
+                    <p className="flex items-center justify-center sm:justify-start gap-4 text-sm text-gray-600">
+                      <span className="flex items-center gap-1 font-semibold text-emerald-600">
+                        <FaRupeeSign /> {e.price}
+                      </span>
+                      <span className="flex items-center gap-1 font-semibold text-yellow-500">
+                        <FaStar /> {e.rating}
+                      </span>
+                    </p>
                   </div>
                 </div>
-              );
-            })}
-            {/* Dummy Product Card */}
+                <div className="flex flex-wrap justify-center sm:justify-end gap-2 sm:gap-3">
+                  <button
+                    onClick={() => handleEdit(i)}
+                    className="flex items-center gap-2 px-3 sm:px-4 py-2 text-sm font-medium text-indigo-600 border border-indigo-400 rounded-lg hover:bg-indigo-600 hover:text-white hover:scale-105"
+                  >
+                    <FaEdit /> Edit
+                  </button>
+                  <button
+                    onClick={() => handleDelete(i)}
+                    className="flex items-center gap-2 px-3 sm:px-4 py-2 text-sm font-medium text-white rounded-lg bg-rose-500 hover:bg-rose-600 hover:scale-105"
+                  >
+                    <FaTrash /> Delete
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

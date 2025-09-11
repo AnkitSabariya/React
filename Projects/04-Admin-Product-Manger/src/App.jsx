@@ -21,7 +21,7 @@ export default function App() {
   ]);
   return (
     <div className="space-y-10">
-      <h2 className="mt-6 text-2xl font-bold text-center">Product Page</h2>
+     
       <RouterProvider router={router}/>
   
 
