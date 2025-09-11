@@ -1,20 +1,50 @@
 import React, { useState } from "react";
 import { FaEdit, FaTrash, FaStar, FaRupeeSign, FaPlus } from "react-icons/fa";
 
-export default function AdminPanel() {
+export default function AdminPanel({products,setProduct}) {
   let [title, setTitle] = useState("");
   let [price, setPrice] = useState(0);
   let [rating, setRating] = useState(0);
   let [dec, setDec] = useState("");
   let [imgUrl, setImgURl] = useState("");
-  const [products, setProduct] = useState([]);
+
+ 
+  // product Add
   const handleAddProduct = (e) => {
     e.preventDefault();
+    if (
+      title.trim() === "" ||
+      price < 0 ||
+      rating < 0 ||
+      dec.trim() === "" ||
+      imgUrl.trim() === ""
+    )
+      return alert("Something is Invalid");
     let newproduct = { title, price, rating, dec, imgUrl };
-    setProduct([...products, newproduct]);
-    localStorage.setItem("products", JSON.stringify(products));
+    // let exits = products.find((e) => e.title === title || e.imgUrl === imgUrl);
+    // if (exits) {
+    //   alert("title Same");
+    // } else {
+      let updatedProducts = [...products, newproduct]; // Because delay 1 product problem first state update with latest value then state
+      setProduct(updatedProducts);
+      localStorage.setItem("items", JSON.stringify(updatedProducts));
+    // }
+
+    // Empty Inputs
+    setTitle("");
+    setPrice(0);
+    setRating(0);
+    setDec("");
+    setImgURl("");
   };
-  console.log(products);
+  // Deleate Product
+const handleDelete = (index) =>{
+let filter = products.filter((e,i)=> i != index)
+setProduct(filter)
+localStorage.setItem("items", JSON.stringify(filter));
+
+}
+// console.log(pro);
 
   return (
     <div className="min-h-screen p-10 overflow-hidden bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200">
@@ -27,30 +57,35 @@ export default function AdminPanel() {
           <form className="grid gap-6">
             {/* Input */}
             <input
+              value={title}
               onChange={(e) => setTitle(e.target.value)}
               type="text"
               placeholder="Product Title"
               className="p-3 text-gray-800 placeholder-gray-400 transition border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
             <input
+              value={price}
               onChange={(e) => setPrice(e.target.value)}
               type="number"
               placeholder="Price"
               className="p-3 text-gray-800 placeholder-gray-400 transition border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <input
+              value={rating}
               onChange={(e) => setRating(e.target.value)}
               type="number"
               placeholder="Rating (1-5)"
               className="p-3 text-gray-800 placeholder-gray-400 transition border rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
             />
             <textarea
+              value={dec}
               onChange={(e) => setDec(e.target.value)}
               placeholder="Description"
               className="p-3 text-gray-800 placeholder-gray-400 transition border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
               rows="3"
             ></textarea>
             <input
+              value={imgUrl}
               onChange={(e) => setImgURl(e.target.value)}
               type="url"
               placeholder="Image URL"
@@ -74,9 +109,12 @@ export default function AdminPanel() {
             Product List
           </h2>
           <div className="space-y-6">
-            {products.map((e,i) => {
+            {products.map((e, i) => {
               return (
-                <div key={i} className="flex items-center justify-between p-5 rounded-2xl bg-white/90 backdrop-blur-lg border border-gray-200 shadow-md transition hover:scale-[1.02] hover:shadow-xl">
+                <div
+                  key={i}
+                  className="flex items-center justify-between p-5 rounded-2xl bg-white/90 backdrop-blur-lg border border-gray-200 shadow-md transition hover:scale-[1.02] hover:shadow-xl"
+                >
                   <div className="flex items-center gap-5">
                     <img
                       src={e.imgUrl}
@@ -89,7 +127,8 @@ export default function AdminPanel() {
                       </h3>
                       <p className="flex items-center gap-4 text-sm text-gray-600">
                         <span className="flex items-center gap-1 font-semibold text-emerald-600">
-                          <FaRupeeSign />{e.price}
+                          <FaRupeeSign />
+                          {e.price}
                         </span>
                         <span className="flex items-center gap-1 font-semibold text-yellow-500">
                           <FaStar /> {e.rating}
@@ -98,10 +137,10 @@ export default function AdminPanel() {
                     </div>
                   </div>
                   <div className="flex gap-3">
-                    <button className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-indigo-600 transition border border-indigo-400 rounded-lg hover:bg-indigo-600 hover:text-white hover:scale-105">
+                    <button  className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-indigo-600 transition border border-indigo-400 rounded-lg hover:bg-indigo-600 hover:text-white hover:scale-105">
                       <FaEdit /> Edit
                     </button>
-                    <button className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white transition rounded-lg bg-rose-500 hover:bg-rose-600 hover:scale-105">
+                    <button onClick={()=> handleDelete(i)} className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white transition rounded-lg bg-rose-500 hover:bg-rose-600 hover:scale-105">
                       <FaTrash /> Delete
                     </button>
                   </div>

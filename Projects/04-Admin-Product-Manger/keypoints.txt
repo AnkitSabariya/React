@@ -1,0 +1,2 @@
+1 :- when go second page and then come previous page  React re-mount mount(reload) page show State empty And set in empty state in Localstorage show old Data delete 
+ans :  const [products, setProduct] = useState(JSON.parse(localStorage.getItem("items")) || 
