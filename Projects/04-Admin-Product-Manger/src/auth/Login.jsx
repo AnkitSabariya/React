@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
-const Login = () => {
+const Login = ({setIsLogin}) => {
   // local Storage
   const savedName = JSON.parse(localStorage.getItem("name"));
   const savedPassword = JSON.parse(localStorage.getItem("password"));
@@ -18,7 +18,8 @@ const Login = () => {
 
     if (savedName === loginName && savedPassword === loginPassword) {
       alert("Login Successfully");
-      navigate("/home")
+      navigate("/admin")
+      setIsLogin(true)
     } else {
       alert("Invalid Input");
     }

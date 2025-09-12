@@ -7,7 +7,10 @@ import {
   FaPlus,
   FaBoxes,
   FaSave,
+  FaSignOutAlt,
+  FaBroom,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function AdminPanel({ products, setProduct }) {
   let [title, setTitle] = useState("");
@@ -17,40 +20,43 @@ export default function AdminPanel({ products, setProduct }) {
   let [imgUrl, setImgURl] = useState("");
   let [editIndex, setEditIndex] = useState(null);
 
-  // product Add
+  const navigate = useNavigate();
+
+  // product Add / Update
   const handleAddOrUpdateProduct = (e) => {
     e.preventDefault();
     if (
       title.trim() === "" ||
       price < 0 ||
-      rating < 0 ||
+      rating < 0 && rating > 5 || 
       dec.trim() === "" ||
       imgUrl.trim() === ""
     )
-      return alert("Something is Invalid");
+      return alert("⚠️ Something is Invalid:");
+
     if (editIndex == null) {
       let newproduct = { title, price, rating, dec, imgUrl };
       let exits = products.find(
-        (e) => e.title.toLowerCase() === title.toLowerCase() || e.imgUrl === imgUrl
+        (e) =>
+          e.title.toLowerCase() === title.toLowerCase() || e.imgUrl === imgUrl
       );
       if (exits) {
         alert("title Same");
       } else {
-        let addProducts = [...products, newproduct]; // Because delay 1 product problem first state update with latest value then state
+        let addProducts = [...products, newproduct];
         setProduct(addProducts);
         localStorage.setItem("items", JSON.stringify(addProducts));
       }
     } else {
-      let saveproduct = [...products]
-      saveproduct[editIndex].title = title 
-      saveproduct[editIndex].price = price 
-      saveproduct[editIndex].rating = rating 
-      saveproduct[editIndex].dec = dec 
-      saveproduct[editIndex].imgUrl = imgUrl 
-      setProduct(saveproduct)
-      setEditIndex(null)
+      let saveproduct = [...products];
+      saveproduct[editIndex].title = title;
+      saveproduct[editIndex].price = price;
+      saveproduct[editIndex].rating = rating;
+      saveproduct[editIndex].dec = dec;
+      saveproduct[editIndex].imgUrl = imgUrl;
+      setProduct(saveproduct);
+      setEditIndex(null);
       localStorage.setItem("items", JSON.stringify(saveproduct));
-      
     }
 
     // Empty Inputs
@@ -60,13 +66,15 @@ export default function AdminPanel({ products, setProduct }) {
     setDec("");
     setImgURl("");
   };
-  // Deleate Product
+
+  // Delete Single Product
   const handleDelete = (index) => {
-    let filter = products.filter((e, i) => i != index);
+    let filter = products.filter((e, i) => i !== index);
     setProduct(filter);
-    setEditIndex(null)
+    setEditIndex(null);
     localStorage.setItem("items", JSON.stringify(filter));
   };
+
   // Edit Product
   const handleEdit = (index) => {
     setTitle(products[index].title);
@@ -76,7 +84,22 @@ export default function AdminPanel({ products, setProduct }) {
     setImgURl(products[index].imgUrl);
     setEditIndex(index);
   };
-  // console.log(pro);
+
+  // ✅ Clear All Products
+  const handleClearAll = () => {
+    if (window.confirm("Are you sure you want to clear all products?")) {
+      setProduct([]);
+      setEditIndex(null);
+      localStorage.removeItem("items");
+    }
+  };
+
+  // ✅ Logout
+  const handleLogout = () => {
+    localStorage.removeItem("name"); 
+    localStorage.removeItem("password"); 
+    navigate("/login");
+  };
 
   return (
     <div className="h-screen overflow-y-auto bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 p-6 sm:p-10">
@@ -92,8 +115,25 @@ export default function AdminPanel({ products, setProduct }) {
         <p className="mt-2 text-gray-600 text-center text-sm sm:text-base">
           Manage your store products – add, edit, or remove with ease 🚀
         </p>
+
+        {/* ✅ Action Buttons */}
+        <div className="flex gap-4 mt-6">
+          <button
+            onClick={handleClearAll}
+            className="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white rounded-lg bg-red-500 hover:bg-red-600 hover:scale-105 shadow-md"
+          >
+            <FaBroom /> Clear All
+          </button>
+          <button
+            onClick={handleLogout}
+            className="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white rounded-lg bg-indigo-600 hover:bg-indigo-700 hover:scale-105 shadow-md"
+          >
+            <FaSignOutAlt /> Logout
+          </button>
+        </div>
       </div>
 
+      {/* ================= CONTENT ================= */}
       <div className="grid gap-8 md:gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         
         {/* ================= FORM SECTION ================= */}
@@ -149,7 +189,7 @@ export default function AdminPanel({ products, setProduct }) {
                 </>
               ) : (
                 <>
-                 <FaSave /> Update Product
+                  <FaSave /> Update Product
                 </>
               )}
             </button>

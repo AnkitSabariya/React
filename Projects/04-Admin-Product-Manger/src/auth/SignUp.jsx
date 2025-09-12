@@ -11,7 +11,7 @@ const SignUp = () => {
       localStorage.setItem("password", JSON.stringify(signupPassword));
       setSignupName("");
       setSignupPassword("");
-      navigate("/")
+      navigate("/login")
     } else {
       alert("Invalid Input");
     }

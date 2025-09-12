@@ -1,14 +1,17 @@
 import React from "react";
 import AdminPanel from "./components/AdminPanel";
 import ProductsPage from "./components/ProductsPage";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {createBrowserRouter,RouterProvider} from "react-router-dom";
 import { useState } from "react";
 import Login from "./auth/Login";
 import SignUp from "./auth/SignUp";
+import ProtectedRoute from "./auth/ProtectedRoute";
 export default function App() {
   const [products, setProduct] = useState(
     JSON.parse(localStorage.getItem("items")) || []
   );
+
+  const [isLogine, setIsLogin] = useState(false);
   // optional
   // useEffect(() => {
   //   let items = JSON.parse(localStorage.getItem("items")) || [];
@@ -20,11 +23,15 @@ export default function App() {
     },
     {
       path: "/admin",
-      element: <AdminPanel products={products} setProduct={setProduct} />,
+      element: (
+        <ProtectedRoute isLogine={isLogine}>
+          <AdminPanel products={products} setProduct={setProduct} />
+        </ProtectedRoute>
+      ),
     },
     {
       path: "/login",
-      element: <Login />,
+      element: <Login setIsLogin={setIsLogin} />,
     },
     {
       path: "/signup",
