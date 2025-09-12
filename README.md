@@ -15,11 +15,12 @@ Projects are listed first, tasks & exercises are organized in a **dropdown**.
 | 01  | 🍎 [Fruits Project](https://github.com/AnkitSabariya/React/tree/main/Projects/01_Fresh-Fruits)   | 🔗 [Live Demo](https://fresh-fruits-chi.vercel.app/) | Props & components basics         |
 | 02  | 🌙 [LightDarkMode](https://github.com/AnkitSabariya/React/tree/main/Projects/02-LightDarkMode)   | 🔗 [Live Demo](https://light-dark-mode-ten.vercel.app/) | Dark/Light theme toggle with state |
 | 03  | ✅ [TodoApp](https://github.com/AnkitSabariya/React/tree/main/Projects/03-TodoApp)               | 🔗 [Live Demo](https://todo-app-react-gamma.vercel.app/) | Manage tasks with state & props   |
+| 04  | 📊 [Admin Panel](https://github.com/AnkitSabariya/React/tree/main/Projects/04-Admin-Product-Manger)       | 🔗 [Live Demo](https://react-3b27.vercel.app/) | Manage products in a simple **dashboard** |
 |     | **⚡ Hooks-based Projects**                                                                       |                                                      |                                   |
-| 04  | 🔢 [useState Counter](https://github.com/AnkitSabariya/React/tree/main/Hooks/01-Usestate(counter)) | 🔗 [Live Demo](https://use-state-counter.vercel.app/) | Basic counter using **useState**  |
-| 05  | 🃏 [useEffect LoadCards](https://github.com/AnkitSabariya/React/tree/main/Hooks/02-UseEffect(LoadCards)) | 🔗 [Live Demo](https://use-effect-loadcards.vercel.app/) | Fetch & render cards with **useEffect** |
-| 06  | 🎬 [useRef Video Player](https://github.com/AnkitSabariya/React/tree/main/Hooks/03-UseRef(VideoPlayer)) | 🔗 [Live Demo](https://use-ref-videoplayer.vercel.app/) | Control video with **useRef**     |
-| 07  | 🔑 [useNavigate Auth](https://github.com/AnkitSabariya/React/tree/main/Hooks/04-UseNavigate(Login-Signup)) | 🔗 [Live Demo](https://use-navigate-auth.vercel.app/) | Programmatic navigation with login/signup |
+| 05  | 🔢 [useState Counter](https://github.com/AnkitSabariya/React/tree/main/Hooks/01-Usestate(counter)) | 🔗 [Live Demo](https://use-state-counter.vercel.app/) | Basic counter using **useState**  |
+| 06  | 🃏 [useEffect LoadCards](https://github.com/AnkitSabariya/React/tree/main/Hooks/02-UseEffect(LoadCards)) | 🔗 [Live Demo](https://use-effect-loadcards.vercel.app/) | Fetch & render cards with **useEffect** |
+| 07  | 🎬 [useRef Video Player](https://github.com/AnkitSabariya/React/tree/main/Hooks/03-UseRef(VideoPlayer)) | 🔗 [Live Demo](https://use-ref-videoplayer.vercel.app/) | Control video with **useRef**     |
+| 08  | 🔑 [useNavigate Login/SignUp](https://github.com/AnkitSabariya/React/tree/main/Hooks/04-UseNavigate(Login-Signup)) | 🔗 [Live Demo](https://react-delta-amber.vercel.app/) | Programmatic navigation with login/signup |
 
 ---
 

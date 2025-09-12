@@ -1,0 +1,1016 @@
+:root {
+  /* Light Theme */
+  --iphone-color: #f5f5f7;
+  --samsung-color: #1a1a1a;
+  --iphone-border-radius: 44px;
+  --samsung-border-radius: 30px;
+  --primary-color: #007aff;
+  --samsung-primary: #6200ee;
+  --sent-message-bg: #007aff;
+  --received-message-bg: #e9e9eb;
+  --sent-text-color: #ffffff;
+  --received-text-color: #000000;
+  --chat-bg: #ffffff;
+  --samsung-chat-bg: #121212;
+  --samsung-message-received: #2c2c2e;
+  --samsung-text-color: #ffffff;
+  --samsung-secondary-text: #a8a8a8;
+  --transition-speed: 0.3s;
+  --body-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --header-bg: #f9f9f9;
+  --input-bg: #f9f9f9;
+  --text-primary: #000000;
+  --text-secondary: #8e8e93;
+}
+
+/* ================= Dark Theme ================= */
+.dark-theme {
+  --iphone-color: #2c2c2e;
+  --chat-bg: #1c1c1e;
+  --received-message-bg: #3a3a3c;
+  --received-text-color: #ffffff;
+  --body-bg: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  --header-bg: #2c2c2e;
+  --input-bg: #2c2c2e;
+  --text-primary: #ffffff;
+  --text-secondary: #a8a8a8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background: var(--body-bg);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  transition: background var(--transition-speed);
+  position: relative;
+}
+
+/* ================= Theme Toggle ================= */
+
+/* ===== Phone Mockups Container ===== */
+.phone-mockups {
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* ===== Navbar ===== */
+.phone-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  margin-bottom: 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+/* ===== NavLink ===== */
+.phone-navbar .nav-buttons a {
+  text-decoration: none;
+  margin-right: 20px;
+  padding: 6px 12px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+/* Light Mode */
+.phone-mockups:not(.dark-theme) .nav-buttons a {
+  color: #000;
+}
+
+.phone-mockups:not(.dark-theme) .nav-buttons a:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Dark Mode */
+.phone-mockups.dark-theme .phone-navbar {
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.phone-mockups.dark-theme .nav-buttons a {
+  color: #fff;
+}
+
+.phone-mockups.dark-theme .nav-buttons a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Active NavLink */
+.phone-navbar .nav-buttons .active {
+  font-weight: bold;
+  color: #fff; /* text color for contrast */
+  background: #007aff; /* iPhone blue or koi bhi color */
+  padding: 6px 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 122, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for active too */
+.phone-navbar .nav-buttons .active:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 122, 255, 0.6);
+}
+
+/* ===== Theme Toggle Button (Glass Effect) ===== */
+.theme-toggle .glass-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.phone-mockups.dark-theme .theme-toggle .glass-btn {
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+}
+
+.theme-toggle .glass-btn:hover {
+  transform: scale(1.1);
+}
+
+.theme-icon {
+  font-size: 24px;
+  color: var(--text-primary);
+  transition: color var(--transition-speed);
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.phone {
+  position: relative;
+  width: 355px;
+  height: 712px;
+  border-radius: var(--iphone-border-radius);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  transition: transform var(--transition-speed);
+  margin-top: 20px;
+}
+
+.phone:hover {
+  transform: translateY(-10px);
+}
+
+.phone-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* iPhone Specific Styles */
+.iphone .phone-frame {
+  background-color: var(--iphone-color);
+  border-radius: var(--iphone-border-radius);
+  border: 14px solid #1a1a1a;
+  transition: background-color var(--transition-speed);
+}
+
+.notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 34px;
+  background-color: #1a1a1a;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notch-camera {
+  width: 12px;
+  height: 12px;
+  background-color: #2c2c2e;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.notch-speaker {
+  width: 60px;
+  height: 6px;
+  background-color: #2c2c2e;
+  border-radius: 3px;
+}
+
+.home-indicator {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 134px;
+  height: 5px;
+  background-color: #000;
+  border-radius: 2.5px;
+  z-index: 10;
+}
+
+/* Samsung Specific Styles */
+.samsung .phone-frame {
+  background-color: var(--samsung-color);
+  border-radius: var(--samsung-border-radius);
+  border: 10px solid #2c2c2e;
+}
+
+.camera-cutout {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  background-color: #000;
+  border-radius: 50%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.camera-lens {
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #4a4a4a 0%, #000 70%);
+  border-radius: 50%;
+}
+
+.navigation-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 48px;
+  background-color: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-button {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #666;
+  border-radius: 50%;
+}
+
+/* Status Bar */
+.status-bar {
+  position: relative;
+  height: 44px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 5;
+}
+
+.iphone .status-bar {
+  color: var(--text-primary);
+  margin-top: 34px;
+  transition: color var(--transition-speed);
+}
+
+.samsung .status-bar {
+  color: #fff;
+  margin-top: 20px;
+}
+
+.time {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.status-icons {
+  display: flex;
+  gap: 6px;
+}
+
+.signal-icon,
+.wifi-icon,
+.battery-icon {
+  width: 18px;
+  height: 18px;
+  background-color: currentColor;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.signal-icon {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 15l4-4 4 4 6-6'/%3E%3C/svg%3E");
+}
+
+.wifi-icon {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.55a11 11 0 0 1 14.08 0'/%3E%3Cpath d='M1.42 9a16 16 0 0 1 21.16 0'/%3E%3Cpath d='M8.53 16.11a6 6 0 0 1 6.95 0'/%3E%3Cline x1='12' y1='20' x2='12' y2='20'/%3E%3C/svg%3E");
+}
+
+.battery-icon {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='7' width='16' height='10' rx='2' ry='2'/%3E%3Cline x1='22' y1='11' x2='22' y2='13'/%3E%3C/svg%3E");
+}
+
+/* Chat App Styles */
+.chat-app {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.iphone .chat-app {
+  background-color: var(--chat-bg);
+  padding-top: 78px;
+  transition: background-color var(--transition-speed);
+}
+
+.samsung .chat-app {
+  background-color: var(--samsung-chat-bg);
+  padding-top: 64px;
+  color: var(--samsung-text-color);
+}
+
+/* Chat Header */
+.chat-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  height: 70px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.iphone .chat-header {
+  background-color: var(--header-bg);
+  transition: background-color var(--transition-speed);
+}
+
+.dark-theme .iphone .chat-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.samsung-header {
+  background-color: #1a1a1a;
+  border-bottom: 1px solid #2c2c2e;
+}
+
+.back-button {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 15px;
+  transition: background-color var(--transition-speed);
+}
+
+.back-button:hover {
+  background-color: rgba(0, 122, 255, 0.1);
+}
+
+.back-arrow {
+  width: 12px;
+  height: 12px;
+  border-left: 2px solid #007aff;
+  border-bottom: 2px solid #007aff;
+  transform: rotate(45deg);
+}
+
+.samsung .back-arrow {
+  border-color: var(--samsung-primary);
+}
+
+.user-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 12px;
+  position: relative;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.online-indicator {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 12px;
+  height: 12px;
+  background: #30d158;
+  border: 2px solid var(--chat-bg);
+  border-radius: 50%;
+  transition: border-color var(--transition-speed);
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-primary);
+  transition: color var(--transition-speed);
+}
+
+.user-status {
+  font-size: 12px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color var(--transition-speed);
+}
+
+.samsung .user-status {
+  color: var(--samsung-secondary-text);
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  background: #30d158;
+  border-radius: 50%;
+}
+
+.header-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.video-call-icon,
+.call-icon {
+  width: 24px;
+  height: 24px;
+  background-color: var(--primary-color);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  cursor: pointer;
+  transition: transform var(--transition-speed);
+}
+
+.video-call-icon:hover,
+.call-icon:hover {
+  transform: scale(1.1);
+}
+
+.samsung .video-call-icon,
+.samsung .call-icon {
+  background-color: var(--samsung-primary);
+}
+
+.video-call-icon {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='23 7 16 12 23 17 23 7'/%3E%3Crect x='1' y='5' width='15' height='14' rx='2' ry='2'/%3E%3C/svg%3E");
+}
+
+.call-icon {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z'/%3E%3C/svg%3E");
+}
+
+/* Chat Messages */
+.chat-messages {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  scroll-behavior: smooth;
+}
+
+/* Message Wallpaper */
+.message-wallpaper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      circle at 20% 20%,
+      rgba(120, 119, 198, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(255, 119, 198, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 60%,
+      rgba(120, 219, 255, 0.1) 0%,
+      transparent 50%
+    );
+  z-index: 0;
+  pointer-events: none;
+}
+
+.samsung-wallpaper {
+  background: radial-gradient(
+      circle at 30% 30%,
+      rgba(98, 0, 238, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 70% 70%,
+      rgba(187, 134, 252, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(98, 0, 238, 0.05) 0%,
+      transparent 50%
+    );
+}
+
+/* Perfect Scrollbar */
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 3px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 122, 255, 0.3) 0%,
+    rgba(0, 122, 255, 0.6) 100%
+  );
+  border-radius: 3px;
+  transition: background var(--transition-speed);
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 122, 255, 0.5) 0%,
+    rgba(0, 122, 255, 0.8) 100%
+  );
+}
+
+.samsung .chat-messages::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgba(98, 0, 238, 0.3) 0%,
+    rgba(98, 0, 238, 0.6) 100%
+  );
+}
+
+.samsung .chat-messages::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(98, 0, 238, 0.5) 0%,
+    rgba(98, 0, 238, 0.8) 100%
+  );
+}
+
+.message-date {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin: 8px 0;
+  z-index: 1;
+  position: relative;
+  transition: color var(--transition-speed);
+}
+
+.samsung .message-date {
+  color: var(--samsung-secondary-text);
+}
+
+.message {
+  max-width: 75%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  animation: fadeIn 0.3s ease-in-out;
+  z-index: 1;
+  position: relative;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.received {
+  align-self: flex-start;
+}
+
+.sent {
+  align-self: flex-end;
+}
+
+.message-content {
+  padding: 12px 16px;
+  border-radius: 18px;
+  font-size: 15px;
+  line-height: 1.4;
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.message-content:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.iphone .received .message-content {
+  background-color: var(--received-message-bg);
+  color: var(--received-text-color);
+  border-bottom-left-radius: 4px;
+  transition: background-color var(--transition-speed),
+    color var(--transition-speed);
+}
+
+.iphone .sent .message-content {
+  background-color: var(--sent-message-bg);
+  color: var(--sent-text-color);
+  border-bottom-right-radius: 4px;
+}
+
+.samsung .received .message-content {
+  background-color: var(--samsung-message-received);
+  color: var(--samsung-text-color);
+  border-bottom-left-radius: 4px;
+}
+
+.samsung .sent .message-content {
+  background-color: var(--samsung-primary);
+  color: var(--sent-text-color);
+  border-bottom-right-radius: 4px;
+}
+
+.message-time {
+  font-size: 11px;
+  color: var(--text-secondary);
+  align-self: flex-end;
+  margin: 0 8px;
+  transition: color var(--transition-speed);
+}
+
+.samsung .message-time {
+  color: var(--samsung-secondary-text);
+}
+
+.typing {
+  padding: 8px 0;
+}
+
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 16px;
+  background-color: var(--received-message-bg);
+  border-radius: 18px;
+  width: fit-content;
+  backdrop-filter: blur(10px);
+  transition: background-color var(--transition-speed);
+}
+
+.samsung .typing-indicator {
+  background-color: var(--samsung-message-received);
+}
+
+.typing-indicator span {
+  width: 8px;
+  height: 8px;
+  background-color: var(--text-secondary);
+  border-radius: 50%;
+  animation: typing 1s infinite ease-in-out;
+  transition: background-color var(--transition-speed);
+}
+
+.samsung .typing-indicator span {
+  background-color: var(--samsung-secondary-text);
+}
+
+.typing-indicator span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Chat Input */
+.chat-input {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  gap: 12px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.iphone .chat-input {
+  background-color: var(--input-bg);
+  transition: background-color var(--transition-speed);
+}
+
+.samsung-input {
+  background-color: #1a1a1a;
+  margin-bottom: 48px;
+}
+
+.attachment-button,
+.send-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+}
+
+.attachment-button {
+  background-color: rgba(0, 122, 255, 0.1);
+}
+
+.send-button {
+  background-color: var(--primary-color);
+}
+
+.samsung .attachment-button {
+  background-color: rgba(98, 0, 238, 0.1);
+}
+
+.samsung .send-button {
+  background-color: var(--samsung-primary);
+}
+
+.attachment-button:hover {
+  background-color: rgba(0, 122, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.send-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 122, 255, 0.3);
+}
+
+.samsung .attachment-button:hover {
+  background-color: rgba(98, 0, 238, 0.2);
+}
+
+.samsung .send-button:hover {
+  box-shadow: 0 4px 15px rgba(98, 0, 238, 0.3);
+}
+
+.plus-icon {
+  width: 16px;
+  height: 16px;
+  position: relative;
+}
+
+.plus-icon:before,
+.plus-icon:after {
+  content: "";
+  position: absolute;
+  background-color: #007aff;
+  border-radius: 1px;
+}
+
+.samsung .plus-icon:before,
+.samsung .plus-icon:after {
+  background-color: var(--samsung-primary);
+}
+
+.plus-icon:before {
+  width: 16px;
+  height: 2px;
+  top: 7px;
+  left: 0;
+}
+
+.plus-icon:after {
+  width: 2px;
+  height: 16px;
+  top: 0;
+  left: 7px;
+}
+
+.send-icon {
+  width: 16px;
+  height: 16px;
+  background-color: #ffffff;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='22' y1='2' x2='11' y2='13'/%3E%3Cpolygon points='22,2 15,22 11,13 2,9'/%3E%3C/svg%3E");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.message-input {
+  flex: 1;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 0 16px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  transition: all var(--transition-speed);
+  border: 1px solid transparent;
+}
+
+.dark-theme .iphone .message-input {
+  background-color: #3a3a3c;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.samsung .message-input {
+  background-color: #2c2c2e;
+  border: none;
+}
+
+.message-input:focus-within {
+  box-shadow: 0 0 0 2px var(--primary-color);
+  transform: translateY(-1px);
+}
+
+.samsung .message-input:focus-within {
+  box-shadow: 0 0 0 2px var(--samsung-primary);
+}
+
+.message-input input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 15px;
+  color: var(--text-primary);
+  transition: color var(--transition-speed);
+}
+
+.samsung .message-input input {
+  color: #fff;
+}
+
+.message-input input::placeholder {
+  color: var(--text-secondary);
+  transition: color var(--transition-speed);
+}
+
+.samsung .message-input input::placeholder {
+  color: var(--samsung-secondary-text);
+}
+
+/* Responsive Design */
+@media (max-width: 850px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .phone {
+    width: 340px;
+    height: 700px;
+  }
+
+  .iphone .phone-frame {
+    border-radius: 36px;
+    border-width: 12px;
+  }
+
+  .samsung .phone-frame {
+    border-radius: 24px;
+    border-width: 8px;
+  }
+
+  .notch {
+    width: 140px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 400px) {
+  .phone {
+    width: 100%;
+    height: 600px;
+    border-radius: 24px;
+  }
+
+  .iphone .phone-frame {
+    border-radius: 24px;
+    border-width: 10px;
+  }
+
+  .samsung .phone-frame {
+    border-radius: 18px;
+    border-width: 6px;
+  }
+
+  .notch {
+    width: 120px;
+    height: 26px;
+  }
+
+  .theme-toggle {
+    top: 10px;
+    right: 10px;
+  }
+
+  .theme-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .theme-icon {
+    font-size: 20px;
+  }
+}
+
+/* Enhanced animations */
+@keyframes messageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.message.received {
+  animation: messageSlideIn 0.4s ease-out;
+}
+
+.message.sent {
+  animation: messageSlideIn 0.4s ease-out;
+  animation-direction: reverse;
+}
