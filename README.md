@@ -13,8 +13,8 @@ Projects are listed first, tasks & exercises are organized in a **dropdown**.
 | #   | Project                                                                                          | Live Demo                                            | About                             |
 | --- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------- | --------------------------------- |
 | 01  | 🍎 [Fruits Project](https://github.com/AnkitSabariya/React/tree/main/Projects/01_Fresh-Fruits)   | 🔗 [Live Demo](https://fresh-fruits-chi.vercel.app/) | Props & components basics         |
-| 02  | 🌙 [LightDarkMode](https://github.com/AnkitSabariya/React/tree/main/Projects/02-LightDarkMode)   | 🔗 [Live Demo](https://light-dark-mode-ten.vercel.app/) | Dark/Light theme toggle with state |
-| 03  | ✅ [TodoApp](https://github.com/AnkitSabariya/React/tree/main/Projects/03-TodoApp)               | 🔗 [Live Demo](https://todo-app-react-gamma.vercel.app/) | Manage tasks with state & props   |
+| 02  | 🌙 [LightDarkMode](https://github.com/AnkitSabariya/React/tree/main/Projects/02-LightDarkMode)   | 🔗 [Live Demo](https://react-wnmg.vercel.app/) | Dark/Light theme toggle with state |
+| 03  | ✅ [TodoApp](https://github.com/AnkitSabariya/React/tree/main/Projects/03-TodoApp)               | 🔗 [Live Demo](https://react-u7gh.vercel.app/) | Manage tasks with state & props   |
 | 04  | 📊 [Admin Panel](https://github.com/AnkitSabariya/React/tree/main/Projects/04-Admin-Product-Manger)       | 🔗 [Live Demo](https://react-3b27.vercel.app/) | Manage products in a simple **dashboard** |
 |     | **⚡ Hooks-based Projects**                                                                       |                                                      |                                   |
 | 05  | 🔢 [useState Counter](https://github.com/AnkitSabariya/React/tree/main/Hooks/01-Usestate(counter)) | 🔗 [Live Demo](https://use-state-counter.vercel.app/) | Basic counter using **useState**  |
