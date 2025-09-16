@@ -10,22 +10,22 @@ import { IoVideocam } from "react-icons/io5";
 import { IoIosCall } from "react-icons/io";
 export default function SamsungChat() {
   const [currentTime, setCurrentTime] = useState("");
-  const [recive, setRecive] = useState([]);
+  // const [recive, setRecive] = useState([]);
   const [input, setInput] = useState("");
   const [samsungSent, setSamsungSent] = useState(
-    JSON.parse(localStorage.getItem("samsung")) || []
+    JSON.parse(localStorage.getItem("chat")) || []
   );
   const handlesend = () => {
     if (input.trim() == "") return;
-    let updated = [...samsungSent, input];
+    let updated = [
+      ...samsungSent,
+      { text: input, time: currentTime, sender: "samsung" },
+    ];
     setSamsungSent(updated);
     setInput("");
-    localStorage.setItem("samsung", JSON.stringify(updated));
+    localStorage.setItem("chat", JSON.stringify(updated));
   };
-  useEffect(() => {
-    let get = JSON.parse(localStorage.getItem("iphone")) || [];
-    setRecive(get);
-  }, []);
+
 
   useEffect(() => {
     const updateTime = () => {
@@ -88,8 +88,12 @@ export default function SamsungChat() {
               </div>
             </div>
             <div className="header-actions">
-              <div className="video-call-icon"><IoVideocam color="white" /></div>
-              <div className="call-icon"><IoIosCall  color="white"/></div>
+              <div className="video-call-icon">
+                <IoVideocam color="white" />
+              </div>
+              <div className="call-icon">
+                <IoIosCall color="white" />
+              </div>
             </div>
           </div>
 
@@ -97,30 +101,28 @@ export default function SamsungChat() {
           <div className="chat-messages" id="samsung-container">
             <div className="message-wallpaper samsung-wallpaper"></div>
             <div className="message-date">Today</div>
-            {recive.map((e,i) => {
+            {samsungSent.map((e, i) => {
               return (
-                <div className="message received" key={i} >
-                  <div className="message-content">{e}</div>
-                  <div className="message-time">{currentTime}</div>
+                <div
+                  className={`message ${
+                    e.sender === "samsung" ? "sent" : "received"
+                  }`}
+                  key={i}
+                >
+                  <div className="message-content">{e.text}</div>
+                  <div className="message-time">{e.time}</div>
                 </div>
               );
             })}
-            {samsungSent.map((e,i) => {
-              return (
-                <div className="message sent" key={i}>
-                  <div className="message-content">
-                   {e}
-                  </div>
-                  <div className="message-time">9:18 AM</div>
-                </div>
-              );
-            })}
+      
           </div>
 
           {/* Input */}
           <div className="chat-input samsung-input">
             <div className="attachment-button">
-              <div className="plus-icon"><FaPlus /></div>
+              <div className="plus-icon">
+                <FaPlus />
+              </div>
             </div>
             <div className="message-input">
               <input

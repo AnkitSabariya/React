@@ -1,4 +1,9 @@
+/** @type {import('tailwindcss').Config} */
 export default {
+    content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}", // src folder ke andar sab JS/React files scan karega
+  ],
   theme: {
     extend: {
       colors: {

@@ -12,20 +12,21 @@ export default function IPhoneChat() {
   const [currentTime, setCurrentTime] = useState("");
   const [input, setInput] = useState("");
   const [iphoneSent, setIphoneSent] = useState(
-    JSON.parse(localStorage.getItem("iphone")) || []
+    JSON.parse(localStorage.getItem("chat")) || []
   );
-  const [recive, setRecive] = useState([]);
-  useEffect(() => {
-    let get = JSON.parse(localStorage.getItem("iphone")) || [];
-    setRecive(get);
-  }, []);
+ 
   const handlesend = () => {
     if (input.trim() == "") return;
-    let updated = [...iphoneSent, input];
+    let updated = [
+      ...iphoneSent,
+      { text: input, time: currentTime, sender: "iphone" },
+    ];
     setIphoneSent(updated);
     setInput("");
-    localStorage.setItem("iphone", JSON.stringify(updated));
+    localStorage.setItem("chat", JSON.stringify(updated));
   };
+
+  // Clock
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
@@ -76,7 +77,7 @@ export default function IPhoneChat() {
             </div>
             <div className="user-info">
               <div className="avatar">
-                <img src="/professional-woman-avatar.png" alt="User Avatar" />
+                <img src="https://t4.ftcdn.net/jpg/12/49/12/63/360_F_1249126338_leS5yTD2NdGuTra86mGyq9heEAxLbX5O.jpg" alt="User Avatar" />
                 <div className="online-indicator"></div>
               </div>
               <div className="user-details">
@@ -88,9 +89,12 @@ export default function IPhoneChat() {
               </div>
             </div>
             <div className="header-actions">
-              <div className="video-call-icon"><IoVideocam color="white" /></div>
-              <div className="call-icon"><IoIosCall  color="white"/>
-</div>
+              <div className="video-call-icon">
+                <IoVideocam color="white" />
+              </div>
+              <div className="call-icon">
+                <IoIosCall color="white" />
+              </div>
             </div>
           </div>
 
@@ -98,29 +102,29 @@ export default function IPhoneChat() {
           <div className="chat-messages" id="iphone-container">
             <div className="message-wallpaper"></div>
             <div className="message-date">Today</div>
-            {recive.map((e,i) => {
+            {iphoneSent.map((e, i) => {
               return (
-                <div className="message received" key={i}>
-                  <div className="message-content"> {e}</div>
-                  <div className="message-time">10:23 AM</div>
+                <div
+                  className={`message ${
+                    e.sender === "iphone" ? "sent" : "received"
+                  } `}
+                  key={i}
+                >
+                  <div className="message-content"> {e.text}</div>
+                  <div className="message-time">{e.time}</div>
                 </div>
               );
             })}
 
-            {iphoneSent.map((e,i) => {
-              return (
-                <div className="message sent" key={i}>
-                  <div className="message-content">{e}</div>
-                  <div className="message-time">{currentTime}</div>
-                </div>
-              );
-            })}
+           
           </div>
 
           {/* Enhanced Input */}
           <div className="chat-input">
             <div className="attachment-button">
-              <div className="plus-icon"><FaPlus /></div>
+              <div className="plus-icon">
+                <FaPlus />
+              </div>
             </div>
             <div className="message-input">
               <input
