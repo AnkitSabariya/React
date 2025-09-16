@@ -10,10 +10,6 @@ This project is perfect for beginners learning **React (useState, props, event h
 
 🔗 **Live Demo:** [Click here to view](https://react-3b27.vercel.app/) 
 
-## 📸 Preview  
-
-![Admin Panel Screenshot](https://via.placeholder.com/1200x600.png?text=Admin+Panel+Preview)  
-*(Replace with your project screenshot)*  
 
 ---
 
