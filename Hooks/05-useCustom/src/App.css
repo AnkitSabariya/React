@@ -1,0 +1,55 @@
+/* Center everything on the page */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 20px;
+  font-family: Arial, sans-serif;
+  background: #f0f0f0;
+}
+
+/* Headings */
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+p {
+  font-size: 20px;
+}
+
+/* Buttons container */
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* Buttons common style */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Individual button colors */
+.increment {
+  background-color: #28a745;
+}
+
+.decrement {
+  background-color: #dc3545;
+}
+
+.reset {
+  background-color: #6c757d;
+}
+
+/* Button hover effect */
+.btn:hover {
+  opacity: 0.8;
+}

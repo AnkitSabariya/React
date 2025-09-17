@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import { FaSignal } from "react-icons/fa6";
 import { FaWifi } from "react-icons/fa";
 import { CiBatteryFull } from "react-icons/ci";
@@ -8,8 +8,9 @@ import { IoMdSend } from "react-icons/io";
 import { FaPlus } from "react-icons/fa6";
 import { IoVideocam } from "react-icons/io5";
 import { IoIosCall } from "react-icons/io";
+import useTime from "../comon/Time"
 export default function SamsungChat() {
-  const [currentTime, setCurrentTime] = useState("");
+
   // const [recive, setRecive] = useState([]);
   const [input, setInput] = useState("");
   const [samsungSent, setSamsungSent] = useState(
@@ -25,23 +26,10 @@ export default function SamsungChat() {
     setInput("");
     localStorage.setItem("chat", JSON.stringify(updated));
   };
+    // Custome Hook(Time)
+    const currentTime = useTime();
 
-
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      const timeString = now.toLocaleTimeString("en-US", {
-        hour: "numeric",
-        minute: "2-digit",
-        hour12: false,
-      });
-      setCurrentTime(timeString);
-    };
-
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
-  }, []);
+ 
 
   return (
     <div className="phone samsung">
@@ -126,6 +114,7 @@ export default function SamsungChat() {
             </div>
             <div className="message-input">
               <input
+              value={input}
                 type="text"
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Message"

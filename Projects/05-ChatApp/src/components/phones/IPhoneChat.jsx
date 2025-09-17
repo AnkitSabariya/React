@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import { FaSignal } from "react-icons/fa6";
 import { FaWifi } from "react-icons/fa";
 import { CiBatteryFull } from "react-icons/ci";
@@ -8,8 +8,9 @@ import { IoMdSend } from "react-icons/io";
 import { FaPlus } from "react-icons/fa6";
 import { IoVideocam } from "react-icons/io5";
 import { IoIosCall } from "react-icons/io";
+import useTime from "../comon/Time"
 export default function IPhoneChat() {
-  const [currentTime, setCurrentTime] = useState("");
+  const currentTime = useTime()
   const [input, setInput] = useState("");
   const [iphoneSent, setIphoneSent] = useState(
     JSON.parse(localStorage.getItem("chat")) || []
@@ -26,22 +27,7 @@ export default function IPhoneChat() {
     localStorage.setItem("chat", JSON.stringify(updated));
   };
 
-  // Clock
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      const timeString = now.toLocaleTimeString("en-US", {
-        hour: "numeric",
-        minute: "2-digit",
-        hour12: false,
-      });
-      setCurrentTime(timeString);
-    };
 
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <div className="phone iphone">
