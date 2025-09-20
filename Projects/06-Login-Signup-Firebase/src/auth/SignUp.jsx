@@ -1,6 +1,11 @@
+// Firebase Auth
+import { app } from "../Firebase.config";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {App} from "../Firebase.config.js"
+import { toast } from "react-toastify";
+
+const auth = getAuth(app);
 
 const SignUp = () => {
   const [signupName, setSignupName] = useState("");
@@ -8,17 +13,18 @@ const SignUp = () => {
   let navigate = useNavigate();
 
   const handleSubmit = () => {
-    if (signupName.trim() !== "" && signupPassword.trim() !== "") {
-      alert("Account Created Successfully 🎉");
-    localStorage.setItem("name", signupName);
-localStorage.setItem("password", signupPassword);
+    createUserWithEmailAndPassword(auth, signupName, signupPassword)
+    .then(()=>{
+      toast.success("Account Created Successfully 🎉")
+    })
+    .catch((error)=>{
+      toast.error(error.message)
+    })
+   
 
-      setSignupName("");
-      setSignupPassword("");
-      navigate("/");
-    } else {
-      alert("Invalid Input");
-    }
+    setSignupName("");
+    setSignupPassword("");
+    navigate("/");
   };
 
   return (
@@ -45,8 +51,8 @@ localStorage.setItem("password", signupPassword);
           <input
             onChange={(e) => setSignupName(e.target.value)}
             value={signupName}
-            type="text"
-            placeholder="John Doe"
+            type="email"
+            placeholder="Enter Email"
             className="w-full px-4 py-3 text-white placeholder-gray-400 bg-white/10 border border-white/30 shadow-sm rounded-xl focus:ring-2 focus:ring-pink-400 focus:outline-none"
           />
         </div>
@@ -58,6 +64,7 @@ localStorage.setItem("password", signupPassword);
             value={signupPassword}
             onChange={(e) => setSignupPassword(e.target.value)}
             type="password"
+            minLength={6}
             placeholder="••••••••"
             className="w-full px-4 py-3 text-white placeholder-gray-400 bg-white/10 border border-white/30 shadow-sm rounded-xl focus:ring-2 focus:ring-purple-400 focus:outline-none"
           />
@@ -79,36 +86,36 @@ localStorage.setItem("password", signupPassword);
         </div>
 
         {/* Social Signup */}
-       <div className="flex flex-col gap-3">
-  <div className="flex gap-3">
-    <button className="flex items-center justify-center w-1/2 gap-2 py-3 text-white bg-white/10 border border-white/30 rounded-xl hover:bg-white/20 hover:shadow-md">
-      <img
-        src="https://www.svgrepo.com/show/355037/google.svg"
-        alt="Google"
-        className="w-5 h-5"
-      />
-      Google
-    </button>
-    <button className="flex items-center justify-center w-1/2 gap-2 py-3 text-white bg-white/10 border border-white/30 rounded-xl hover:bg-white/20 hover:shadow-md">
-      <img
-        src="https://www.svgrepo.com/show/475647/facebook-color.svg"
-        alt="Facebook"
-        className="w-5 h-5"
-      />
-      Facebook
-    </button>
-  </div>
+        <div className="flex flex-col gap-3">
+          <div className="flex gap-3">
+            <button className="flex items-center justify-center w-1/2 gap-2 py-3 text-white bg-white/10 border border-white/30 rounded-xl hover:bg-white/20 hover:shadow-md">
+              <img
+                src="https://www.svgrepo.com/show/355037/google.svg"
+                alt="Google"
+                className="w-5 h-5"
+              />
+              Google
+            </button>
+            <button className="flex items-center justify-center w-1/2 gap-2 py-3 text-white bg-white/10 border border-white/30 rounded-xl hover:bg-white/20 hover:shadow-md">
+              <img
+                src="https://www.svgrepo.com/show/475647/facebook-color.svg"
+                alt="Facebook"
+                className="w-5 h-5"
+              />
+              Facebook
+            </button>
+          </div>
 
-  {/* GitHub login */}
-  <button className="flex items-center justify-center gap-2 py-3 text-white bg-white/10 border border-white/30 rounded-xl hover:bg-white/20 hover:shadow-md">
-    <img
-      src="https://www.svgrepo.com/show/475654/github-color.svg"
-      alt="GitHub"
-      className="w-5 h-5"
-    />
-    GitHub
-  </button>
-</div>
+          {/* GitHub login */}
+          <button className="flex items-center justify-center gap-2 py-3 text-white bg-white/10 border border-white/30 rounded-xl hover:bg-white/20 hover:shadow-md">
+            <img
+              src="https://www.svgrepo.com/show/475654/github-color.svg"
+              alt="GitHub"
+              className="w-5 h-5"
+            />
+            GitHub
+          </button>
+        </div>
       </div>
     </div>
   );
