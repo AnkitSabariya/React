@@ -36,7 +36,7 @@ const Login = () => {
       );
       setUser(result.user.email);
       toast.success("Login Successful 🎉");
-      // navigate(""); // You Can use
+      navigate("/"); 
     } catch (err) {
       toast.error(err.message);
     } finally {

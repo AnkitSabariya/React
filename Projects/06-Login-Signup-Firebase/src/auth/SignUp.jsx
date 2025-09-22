@@ -4,27 +4,34 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import ButtonLoader from "../components/ButtonLoader";
 
 const auth = getAuth(app);
-
 const SignUp = () => {
+  const [loading, setLoading] = useState(false);
   const [signupName, setSignupName] = useState("");
   const [signupPassword, setSignupPassword] = useState("");
   let navigate = useNavigate();
 
-  const handleSubmit = () => {
-    createUserWithEmailAndPassword(auth, signupName, signupPassword)
-    .then(()=>{
-      toast.success("Account Created Successfully 🎉")
-    })
-    .catch((error)=>{
-      toast.error(error.message)
-    })
-   
-
-    setSignupName("");
-    setSignupPassword("");
-    navigate("/");
+  const handleSubmit = async () => {
+    setLoading(true)
+    try {
+      const result = await createUserWithEmailAndPassword(
+        auth,
+        signupName,
+        signupPassword
+      );
+      toast.success(`Account Created Successfully ${result.user.email} 🎉`);
+      setTimeout(() => {
+      navigate("/login");
+      }, 1500);
+    } catch (error) {
+      toast.error(error.message);
+    } finally {
+      setLoading(false)
+      setSignupName("");
+      setSignupPassword("");
+    }
   };
 
   return (
@@ -72,50 +79,16 @@ const SignUp = () => {
 
         {/* Sign Up Button */}
         <button
+        disabled={loading}
           onClick={handleSubmit}
           className="w-full py-3 font-semibold text-white transition transform bg-gradient-to-r from-pink-500 to-purple-500 shadow-md rounded-xl hover:shadow-lg hover:scale-105"
         >
-          Sign Up
+          <ButtonLoader loading={loading} spinnerText="Sign up..."> Sign Up </ButtonLoader>
         </button>
 
-        {/* Divider */}
-        <div className="flex items-center my-6">
-          <hr className="flex-grow border-gray-600" />
-          <span className="mx-3 text-sm text-gray-400">OR</span>
-          <hr className="flex-grow border-gray-600" />
-        </div>
+      
 
-        {/* Social Signup */}
-        <div className="flex flex-col gap-3">
-          <div className="flex gap-3">
-            <button className="flex items-center justify-center w-1/2 gap-2 py-3 text-white bg-white/10 border border-white/30 rounded-xl hover:bg-white/20 hover:shadow-md">
-              <img
-                src="https://www.svgrepo.com/show/355037/google.svg"
-                alt="Google"
-                className="w-5 h-5"
-              />
-              Google
-            </button>
-            <button className="flex items-center justify-center w-1/2 gap-2 py-3 text-white bg-white/10 border border-white/30 rounded-xl hover:bg-white/20 hover:shadow-md">
-              <img
-                src="https://www.svgrepo.com/show/475647/facebook-color.svg"
-                alt="Facebook"
-                className="w-5 h-5"
-              />
-              Facebook
-            </button>
-          </div>
-
-          {/* GitHub login */}
-          <button className="flex items-center justify-center gap-2 py-3 text-white bg-white/10 border border-white/30 rounded-xl hover:bg-white/20 hover:shadow-md">
-            <img
-              src="https://www.svgrepo.com/show/475654/github-color.svg"
-              alt="GitHub"
-              className="w-5 h-5"
-            />
-            GitHub
-          </button>
-        </div>
+       
       </div>
     </div>
   );
