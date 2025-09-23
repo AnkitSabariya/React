@@ -63,7 +63,7 @@ export default function IPhoneChat() {
             </div>
             <div className="user-info">
               <div className="avatar">
-                <img src="https://t4.ftcdn.net/jpg/12/49/12/63/360_F_1249126338_leS5yTD2NdGuTra86mGyq9heEAxLbX5O.jpg" alt="User Avatar" />
+                <img src="https://m.media-amazon.com/images/I/41jLBhDISxL.jpg" alt="User Avatar" />
                 <div className="online-indicator"></div>
               </div>
               <div className="user-details">

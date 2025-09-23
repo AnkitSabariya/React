@@ -64,7 +64,7 @@ export default function SamsungChat() {
             </div>
             <div className="user-info">
               <div className="avatar">
-                <img src="/professional-man-avatar.png" alt="User Avatar" />
+                <img src="https://m.media-amazon.com/images/I/31Cd9UQp6eL._UF1000,1000_QL80_.jpg" alt="User Avatar" />
                 <div className="online-indicator"></div>
               </div>
               <div className="user-details">
