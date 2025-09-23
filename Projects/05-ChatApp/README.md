@@ -1,12 +1,19 @@
-# React + Vite
+# 💬 Chat App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern **real-time chat application** built with **React + Firebase**.  
+Users can sign up, log in, and chat instantly with live message updates.  
 
-Currently, two official plugins are available:
+- 🚀 **Live Demo** → [Click Here](https://react-xyzo.vercel.app/iphone)  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Features
+- 🔐 **Authentication** – Secure login & signup with Firebase Auth  
+- 💬 **Real-time Chat** – Messages stored in Firestore with instant updates  
+- 👤 **User Profiles** – Display avatars & usernames  
+- 📱 **Responsive UI** – Works smoothly on desktop & mobile  
+- 🎨 **Clean Design** – Simple and modern chat interface  
+
+---
+
