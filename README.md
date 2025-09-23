@@ -16,7 +16,7 @@ Projects are listed first, tasks & exercises are organized in a **dropdown**.
 | 02  | 🌙 [LightDarkMode](https://github.com/AnkitSabariya/React/tree/main/Projects/02-LightDarkMode)   | 🔗 [Live Demo](https://react-wnmg.vercel.app/) | Dark/Light theme toggle with state |
 | 03  | ✅ [TodoApp](https://github.com/AnkitSabariya/React/tree/main/Projects/03-TodoApp)               | 🔗 [Live Demo](https://react-u7gh.vercel.app/) | Manage tasks with state & props   |
 | 04  | 📊 [Admin Panel](https://github.com/AnkitSabariya/React/tree/main/Projects/04-Admin-Product-Manger) | 🔗 [Live Demo](https://react-3b27.vercel.app/) | Manage products in a simple **dashboard** |
-| 05  | 💬 [Chat App](https://github.com/AnkitSabariya/React/tree/main/Projects/05-ChatApp)              | 🔗 [Live Demo](https://react-xyzo.vercel.app/iphone) | Simple real-time **chat interface** |
+| 05  | 💬 [Chat App](https://github.com/AnkitSabariya/React/tree/main/Projects/05-ChatApp)              | 🔗 [Live Demo](https://react-xyzo.vercel.app/) | Simple real-time **chat interface** |
 | 06  | 🔐 [Login-Signup (Firebase)](https://github.com/AnkitSabariya/React/tree/main/Projects/06-Login-Signup-Firebase) | 🔗 [Live Demo](https://firebase-login-app.vercel.app/) | Authentication with **Firebase**  |
 | 07  | 🚀 [Prodify](https://github.com/AnkitSabariya/React/tree/main/Projects/07-Prodify)               | 🔗 [Live Demo](https://prodify-app.vercel.app/) | Productivity & task management app |
 
