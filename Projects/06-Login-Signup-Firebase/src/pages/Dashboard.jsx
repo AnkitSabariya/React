@@ -1,19 +1,26 @@
-// Dashboard.jsx
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
+
 const Dashboard = () => {
   const auth = getAuth();
   const navigate = useNavigate();
-  const [user, setUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(undefined); // undefined = checking
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) setUser(user);
-      else navigate("/login");
+      if (user) {
+        console.log("Logged in:", user.email);
+        setCurrentUser(user);
+      } else {
+        console.log("Not logged in");
+        setCurrentUser(null);
+        navigate("/login"); // only after state updated
+      }
     });
 
-    return () => unsubscribe(); // cleanup: listener remove kar do
+    return () => unsubscribe();
   }, [auth, navigate]);
 
   const handleLogout = async () => {
@@ -25,12 +32,18 @@ const Dashboard = () => {
       toast.error(error.message);
     }
   };
-  if (user === null) {
+
+  if (currentUser === undefined) {
     return (
       <div className="flex items-center justify-center h-screen text-white">
         Loading...
       </div>
     );
+  }
+
+  if (currentUser === null) {
+    // Optional safeguard: avoid rendering Dashboard while redirecting
+    return null;
   }
 
   return (
@@ -41,7 +54,7 @@ const Dashboard = () => {
           Welcome to Dashboard 🎉
         </h1>
         <p className="text-gray-300 mb-8">
-          You are logged in as <span className="font-bold">{user?.email}</span>
+          You are logged in as <span className="font-bold">{currentUser.email}</span>
         </p>
 
         {/* Logout Button */}
