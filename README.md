@@ -50,6 +50,7 @@ Projects are listed first, tasks & exercises are organized in a **dropdown**.
 | 06  | [Controlled_UnControlled](https://github.com/AnkitSabariya/React/tree/main/06-Controlled_UnControlled) | Controlled vs uncontrolled components      |
 | 07  | [Lifting_State_Sync](https://github.com/AnkitSabariya/React/tree/main/07-Lifting_State_Sync) | Sharing state between components           |
 | 08  | [HighendOrderComponents](https://github.com/AnkitSabariya/React/tree/main/08-HighendOrderComponents) | Reusable logic with HOCs                   |
+| 08  | [Redux](https://github.com/AnkitSabariya/React/tree/main/08-Redux) | Redux Basics                   |
 
 </details>
 
