@@ -1,12 +1,33 @@
-# React + Vite
+# 🛒 07 - Prodify ProductList
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A **React** project showcasing a **dynamic product listing page** inspired by Flipkart / Prodify UI.  
+This project demonstrates **fetching products via API**, **filtering**, **sorting**, and **grid/list view switching** — fully UI-driven.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌟 Live Demo
 
-## Expanding the ESLint configuration
+🚀 [View Live Demo](https://react-fd9r.vercel.app/)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🚀 Features
+
+- 🛍️ Fetch products from **dummyjson.com API**  
+- 🔍 **Search products** by title  
+- 🗂️ **Category filter** with multiple categories  
+- 💰 **Price range filter** with slider  
+- 📊 **Sorting** by price or rating  
+- 🖼️ **Grid / List view switch**  
+- 📱 Responsive and clean UI  
+
+---
+
+## ⚡ Tech Stack
+
+- **React** (Functional components + hooks)  
+- **Axios** (API requests)  
+- **CSS / Grid & Flexbox** (UI layout)  
+- **React Hooks** (`useState`, `useEffect`)  
+
+---
