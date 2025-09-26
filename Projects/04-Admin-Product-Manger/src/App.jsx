@@ -11,7 +11,7 @@ export default function App() {
     JSON.parse(localStorage.getItem("items")) || []
   );
 
-  const [isLogine, setIsLogin] = useState(false);
+
   // optional
   // useEffect(() => {
   //   let items = JSON.parse(localStorage.getItem("items")) || [];
@@ -24,14 +24,14 @@ export default function App() {
     {
       path: "/admin",
       element: (
-        <ProtectedRoute isLogine={isLogine}>
+        <ProtectedRoute >
           <AdminPanel products={products} setProduct={setProduct} />
         </ProtectedRoute>
       ),
     },
     {
       path: "/login",
-      element: <Login setIsLogin={setIsLogin} />,
+      element: <Login  />,
     },
     {
       path: "/signup",

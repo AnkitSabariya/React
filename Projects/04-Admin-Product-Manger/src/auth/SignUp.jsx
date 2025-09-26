@@ -7,8 +7,8 @@ const SignUp = () => {
   const handleSubmit = () => {
    if (signupName.trim() !== "" && signupPassword.trim() !== "") {
       alert("Account Create Succefully...");
-      localStorage.setItem("name", JSON.stringify(signupName));
-      localStorage.setItem("password", JSON.stringify(signupPassword));
+      localStorage.setItem("name",signupName);
+      localStorage.setItem("password",signupPassword);
       setSignupName("");
       setSignupPassword("");
       navigate("/login")

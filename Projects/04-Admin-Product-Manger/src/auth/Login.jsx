@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-
-const Login = ({setIsLogin}) => {
+const Login = () => {
   // local Storage
-  const savedName = JSON.parse(localStorage.getItem("name"));
-  const savedPassword = JSON.parse(localStorage.getItem("password"));
+  const savedName = localStorage.getItem("name");
+  const savedPassword = localStorage.getItem("password");
   // Hooks
   const [loginName, setLoginName] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  useEffect(() => {
+    const savedName = localStorage.getItem("name");
+    if (savedName) navigate("/admin", { replace: true });
+  }, [navigate]);
   const handleLogin = () => {
     if (loginName.trim() === "" || loginPassword.trim() === "") {
       alert("Please enter both fields");
@@ -18,13 +21,12 @@ const Login = ({setIsLogin}) => {
 
     if (savedName === loginName && savedPassword === loginPassword) {
       alert("Login Successfully");
-      navigate("/admin")
-      setIsLogin(true)
+      navigate("/admin", { replace: true });
     } else {
       alert("Invalid Input");
     }
-    setLoginName("");
-    setLoginPassword("");
+    localStorage.setItem("name", loginName);
+  
   };
 
   return (
@@ -79,7 +81,10 @@ const Login = ({setIsLogin}) => {
             >
               Login
             </button>
-            <button onClick={()=> navigate("/signup")} className="w-1/2 py-3 font-semibold text-indigo-600 transition transform bg-gray-100 border border-gray-300 shadow-sm rounded-xl hover:bg-gray-200 hover:-translate-y-1 hover:shadow-md">
+            <button
+              onClick={() => navigate("/signup")}
+              className="w-1/2 py-3 font-semibold text-indigo-600 transition transform bg-gray-100 border border-gray-300 shadow-sm rounded-xl hover:bg-gray-200 hover:-translate-y-1 hover:shadow-md"
+            >
               Sign Up
             </button>
           </div>

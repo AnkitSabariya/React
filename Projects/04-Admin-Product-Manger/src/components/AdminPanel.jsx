@@ -9,6 +9,7 @@ import {
   FaSave,
   FaSignOutAlt,
   FaBroom,
+  FaBoxOpen
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
@@ -117,20 +118,32 @@ export default function AdminPanel({ products, setProduct }) {
         </p>
 
         {/* ✅ Action Buttons */}
-        <div className="flex gap-4 mt-6">
-          <button
-            onClick={handleClearAll}
-            className="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white rounded-lg bg-red-500 hover:bg-red-600 hover:scale-105 shadow-md"
-          >
-            <FaBroom /> Clear All
-          </button>
-          <button
-            onClick={handleLogout}
-            className="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white rounded-lg bg-indigo-600 hover:bg-indigo-700 hover:scale-105 shadow-md"
-          >
-            <FaSignOutAlt /> Logout
-          </button>
-        </div>
+    <div className="flex gap-4 mt-6">
+  {/* Clear All */}
+  <button
+    onClick={handleClearAll}
+    className="flex items-center gap-2 px-5 py-2 text-sm font-semibold text-white rounded-lg bg-red-600 hover:bg-red-700 hover:scale-105 shadow-lg transition-transform duration-200"
+  >
+    <FaBroom className="text-white" /> Clear All
+  </button>
+
+  {/* Logout */}
+  <button
+    onClick={handleLogout}
+    className="flex items-center gap-2 px-5 py-2 text-sm font-semibold text-white rounded-lg bg-blue-600 hover:bg-blue-700 hover:scale-105 shadow-lg transition-transform duration-200"
+  >
+    <FaSignOutAlt className="text-white" /> Logout
+  </button>
+
+  {/* Product Page */}
+  <button
+    onClick={() => navigate("/products")}
+    className="flex items-center gap-2 px-5 py-2 text-sm font-semibold text-white rounded-lg bg-green-600 hover:bg-green-700 hover:scale-105 shadow-lg transition-transform duration-200"
+  >
+    <FaBoxOpen className="text-white" /> Product Page
+  </button>
+</div>
+
       </div>
 
       {/* ================= CONTENT ================= */}
