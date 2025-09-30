@@ -201,6 +201,57 @@ body {
   flex-direction: column;
   align-items: center;
 }
+.menu-container {
+  position: relative;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.menu-dots {
+  font-size: 20px;
+  color: white;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.menu-dots:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.menu-dropdown {
+  position: absolute;
+  top: 28px;
+  right: 0;
+  background: #2c2c2e;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  display: none;
+  flex-direction: column;
+  min-width: 120px;
+  z-index: 10;
+}
+
+.menu-dropdown button {
+  background: none;
+  border: none;
+  color: #fff;
+  text-align: left;
+  padding: 10px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s ease;
+}
+
+.menu-dropdown button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Show dropdown when hovering over dots */
+.menu-container:hover .menu-dropdown {
+  display: flex;
+}
 
 /* Enhanced Navbar with Glass Effect */
 .phone-navbar {
