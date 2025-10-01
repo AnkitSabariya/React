@@ -1,4 +1,5 @@
 import { createStore } from "redux";
+// Reducer
 const initialState = 0;
 const CounterReducer = (state = initialState, action) => {
   switch (action.type) {

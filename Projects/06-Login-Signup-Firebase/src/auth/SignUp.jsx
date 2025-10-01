@@ -1,7 +1,11 @@
 // Firebase Auth
 import { app } from "../Firebase.config";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { useState } from "react";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+} from "firebase/auth";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import ButtonLoader from "../components/ButtonLoader";
@@ -12,9 +16,16 @@ const SignUp = () => {
   const [signupName, setSignupName] = useState("");
   const [signupPassword, setSignupPassword] = useState("");
   let navigate = useNavigate();
-
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        navigate("/", { replace: true }); // 👈 already logged in → redirect
+      }
+    });
+    return () => unsubscribe();
+  }, [navigate]);
   const handleSubmit = async () => {
-    setLoading(true)
+    setLoading(true);
     try {
       const result = await createUserWithEmailAndPassword(
         auth,
@@ -23,12 +34,12 @@ const SignUp = () => {
       );
       toast.success(`Account Created Successfully ${result.user.email} 🎉`);
       setTimeout(() => {
-      navigate("/login");
+        navigate("/login", { replace: true });
       }, 1500);
     } catch (error) {
       toast.error(error.message);
     } finally {
-      setLoading(false)
+      setLoading(false);
       setSignupName("");
       setSignupPassword("");
     }
@@ -79,16 +90,15 @@ const SignUp = () => {
 
         {/* Sign Up Button */}
         <button
-        disabled={loading}
+          disabled={loading}
           onClick={handleSubmit}
           className="w-full py-3 font-semibold text-white transition transform bg-gradient-to-r from-pink-500 to-purple-500 shadow-md rounded-xl hover:shadow-lg hover:scale-105"
         >
-          <ButtonLoader loading={loading} spinnerText="Sign up..."> Sign Up </ButtonLoader>
+          <ButtonLoader loading={loading} spinnerText="Sign up...">
+            {" "}
+            Sign Up{" "}
+          </ButtonLoader>
         </button>
-
-      
-
-       
       </div>
     </div>
   );

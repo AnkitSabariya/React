@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { app } from "../Firebase.config";
 import {
@@ -7,6 +7,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   GithubAuthProvider,
+  onAuthStateChanged
 } from "firebase/auth";
 import { toast } from "react-toastify";
 import ButtonLoader from "../components/ButtonLoader";
@@ -25,6 +26,14 @@ const Login = () => {
   const [loadingEmail, setLoadingEmail] = useState(false);
   const [loadingGoogle, setLoadingGoogle] = useState(false);
   const [loadingGithub, setLoadingGithub] = useState(false);
+useEffect(() => {
+  const unsubscribe = onAuthStateChanged(auth, (user) => {
+    if (user) {
+      navigate("/", { replace: true }); // 👈 already logged in → redirect
+    }
+  });
+  return () => unsubscribe();
+}, [ navigate]);
 
   const handleLogin = async () => {
     setLoadingEmail(true);

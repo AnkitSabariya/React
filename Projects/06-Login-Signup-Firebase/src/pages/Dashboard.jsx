@@ -12,11 +12,12 @@ const Dashboard = () => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         console.log("Logged in:", user.email);
+  
         setCurrentUser(user);
       } else {
         console.log("Not logged in");
         setCurrentUser(null);
-        navigate("/login"); // only after state updated
+        navigate("/login", { replace: true }); // only after state updated
       }
     });
 
@@ -27,7 +28,7 @@ const Dashboard = () => {
     try {
       await signOut(auth);
       toast.success("Logged out successfully 👋");
-      navigate("/login");
+      navigate("/login", { replace: true });
     } catch (error) {
       toast.error(error.message);
     }
