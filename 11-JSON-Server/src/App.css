@@ -1,0 +1,38 @@
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 40px auto;
+  font-family: Arial, sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.table-header,
+.table-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 3fr 2fr 1fr; /* Name, Age, Email, City, Gender */
+  padding: 12px 15px;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.table-header {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.table-row:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.table-row:hover {
+  background-color: #e6f7ff;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 24px;
+}
