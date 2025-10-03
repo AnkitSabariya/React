@@ -1,18 +1,233 @@
-.container {
+
+/* Form */
+/* Form Container */
+.form-container {
   width: 90%;
   max-width: 900px;
-  margin: 40px auto;
-  font-family: Arial, sans-serif;
+  margin: 50px auto;
+  padding: 35px 30px;
+  background: #f0f0f0; /* match navbar/table */
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Form Title */
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #333;
+}
+
+/* Form Layout */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Input Wrapper for Floating Labels */
+.input-group {
+  position: relative;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"] {
+  width: 100%;
+  padding: 14px 12px 14px 12px;
   border: 1px solid #ccc;
   border-radius: 8px;
+  font-size: 16px;
+  transition: 0.3s;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: #0077cc;
+  box-shadow: 0 0 6px rgba(0, 119, 204, 0.3);
+  outline: none;
+}
+
+/* Floating Label */
+.input-group label {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+ 
+  padding: 0 5px;
+  color: #888;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+input:focus + label,
+input:not(:placeholder-shown) + label {
+  top: -10px;
+  font-size: 13px;
+  color: #0077cc;
+}
+
+/* Gender Section */
+.gender {
+  display: flex;
+  gap: 30px;
+  font-size: 16px;
+}
+
+.gender label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+/* Submit Button */
+button {
+  width: 80px;
+  padding: 8px 0;
+  font-size: 16px;
+  font-weight: 400px;
+  color: #fff;
+  background: #0077cc;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:hover {
+  background: #005fa3;
+  box-shadow: 0 5px 12px rgba(0, 95, 163, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .gender {
+    flex-direction: column;
+  }
+}
+
+/* Form */
+/* Navbar */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Navbar wrapper */
+.navbar {
+  width: 90%;
+  max-width: 900px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f0f0f0;
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+/* Nav Links */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #333;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: 0.3s;
+  white-space: nowrap; /* prevent text wrap */
+}
+
+/* Hover */
+.nav-links a:hover {
+  background: #e6f7ff;
+  color: #0077cc;
+}
+
+/* Active */
+.nav-links a.active {
+  background: #0077cc;
+  color: #fff;
+}
+
+/* Hamburger (hidden on desktop) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #333;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    right: 0; /* FIX: was 20px earlier, caused overflow */
+    flex-direction: column;
+    gap: 15px;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    width: 200px;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(110%); /* hide off-screen without overflow */
+  }
+
+  .nav-links.open {
+    transform: translateX(0); /* slide in */
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* Navbar */
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 50px auto;
+  font-family: Arial, sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  background: #fff;
 }
 
 .table-header,
 .table-row {
   display: grid;
-  grid-template-columns: 2fr 1fr 3fr 2fr 1fr; /* Name, Age, Email, City, Gender */
+  grid-template-columns: 1fr 2fr 1fr 2fr 2fr 2fr 3fr; /* id, name, age, email, city, gender, actions */
   padding: 12px 15px;
   align-items: center;
   border-bottom: 1px solid #ccc;
@@ -21,6 +236,7 @@
 .table-header {
   background-color: #f0f0f0;
   font-weight: bold;
+  text-align: center;
 }
 
 .table-row:nth-child(even) {
@@ -29,10 +245,69 @@
 
 .table-row:hover {
   background-color: #e6f7ff;
+  transition: 0.3s;
 }
 
-h1 {
+.table-row div {
   text-align: center;
-  margin-top: 50px;
-  font-size: 24px;
+  word-break: break-word;
+}
+
+/* Actions buttons */
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.actions button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #fff;
+}
+
+/* Edit button */
+.actions .edit {
+  background-color: #0077cc;
+}
+
+.actions .edit:hover {
+  background-color: #005fa3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,119,204,0.3);
+}
+
+/* Delete button */
+.actions .delete {
+  background-color: #ff4d4f;
+}
+
+.actions .delete:hover {
+  background-color: #d9363e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(255,77,79,0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .table-header,
+  .table-row {
+    grid-template-columns: 1fr 1fr; /* stack columns */
+    grid-template-rows: repeat(4, auto);
+    text-align: left;
+    padding: 10px;
+  }
+
+  .table-row div {
+    text-align: left;
+  }
+
+  .actions {
+    justify-content: flex-start;
+  }
 }

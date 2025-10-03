@@ -1,42 +1,23 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import "./App.css";
-
+import { BrowserRouter } from "react-router";
+import { Routes } from "react-router";
+import { Route } from "react-router";
+import Users from "./pages/Users";
+import AddUser from "./pages/AddUser";
+import Navbar from "./components/Navbar";
+import EditUser from "./pages/EditUser";
 function App() {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    axios.get("http://localhost:3000/users")
-    .then((res) => {
-      setData(res.data);
-      setLoading(false);
-    });
-  }, []);
-
   return (
-    <div className="container">
-      <div className="table-header">
-        <div>Name</div>
-        <div>Age</div>
-        <div>Email</div>
-        <div>City</div>
-        <div>Gender</div>
-      </div>
-
-      {!loading ? (
-        data.map((e, i) => (
-          <div className="table-row" key={i}>
-            <div>{e.name}</div>
-            <div>{e.age}</div>
-            <div>{e.email}</div>
-            <div>{e.city}</div>
-            <div>{e.isMale ? "Male" : "Female"}</div>
-          </div>
-        ))
-      ) : (
-        <h1>Loading..</h1>
-      )}
+    <div>
+      <BrowserRouter>
+      <Navbar/>
+        <Routes>
+          <Route path="/" element={<Users />} />
+          <Route path="/adduser" element={<AddUser />} />
+          <Route path="/edit/:userid" element={<EditUser />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
