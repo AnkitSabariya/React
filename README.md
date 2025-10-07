@@ -19,6 +19,8 @@ Projects are listed first, tasks & exercises are organized in a **dropdown**.
 | 05  | 💬 [Chat App](https://github.com/AnkitSabariya/React/tree/main/Projects/05-ChatApp)              | 🔗 [Live Demo](https://react-xyzo.vercel.app/) | Simple real-time **chat interface** |
 | 06  | 🔐 [Login-Signup (Firebase)](https://github.com/AnkitSabariya/React/tree/main/Projects/06-Login-Signup-Firebase) | 🔗 [Live Demo](https://react-gbp4.vercel.app/login) | Authentication with **Firebase**  |
 | 07  | 🚀 [Prodify](https://github.com/AnkitSabariya/React/tree/main/Projects/07-Prodify)               | 🔗 [Live Demo](https://react-fd9r.vercel.app/) | Productivity & task management app |
+| 08  | 🎓 [Student Management](https://github.com/AnkitSabariya/React/tree/main/Firebase/Student-Database) | 🔗 [Live Demo](https://react-vcfc.vercel.app/) | Manage student data with Firebase Firestore, add students, responsive UI & notifications |
+
 
 ---
 
