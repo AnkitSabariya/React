@@ -5,7 +5,7 @@ Manage student data effortlessly with a **modern React + Firebase app**! Add stu
 ---
 
 ## 🚀 Live Demo
-[View Online](<DEPLOY_LINK>) 🌐
+[View Online](https://react-vcfc.vercel.app/) 🌐
 
 ---
 
