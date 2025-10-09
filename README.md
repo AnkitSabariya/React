@@ -25,13 +25,14 @@ Projects are listed first, tasks & exercises are organized in a **dropdown**.
 
 ## ⚡ Hooks-based Projects
 
-| #   | Project                                                                                          | Live Demo                                            | About                             |
-| --- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------- | --------------------------------- |
-| 01  | 🔢 [useState Counter](https://github.com/AnkitSabariya/React/tree/main/Hooks/01-Usestate(counter)) | 🔗 [Live Demo](https://use-state-counter.vercel.app/) | Basic counter using **useState**  |
-| 02  | 🃏 [useEffect LoadCards](https://github.com/AnkitSabariya/React/tree/main/Hooks/02-UseEffect(LoadCards)) | 🔗 [Live Demo](https://use-effect-loadcards.vercel.app/) | Fetch & render cards with **useEffect** |
-| 03  | 🎬 [useRef Video Player](https://github.com/AnkitSabariya/React/tree/main/Hooks/03-UseRef(VideoPlayer)) | 🔗 [Live Demo](https://use-ref-videoplayer.vercel.app/) | Control video with **useRef**     |
-| 04  | 🔑 [useNavigate Login/SignUp](https://github.com/AnkitSabariya/React/tree/main/Hooks/04-UseNavigate(Login-Signup)) | 🔗 [Live Demo](https://react-delta-amber.vercel.app/) | Programmatic navigation with login/signup |
-| 05  | 🛠️ [useCustom Hook](https://github.com/AnkitSabariya/React/tree/main/Hooks/05-useCustom)          | —                                                    | Practice building custom hooks     |
+| #  | Project                                                                                                                | About                                     |
+| -- | ---------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
+| 01 | 🔢 [useState Counter](https://github.com/AnkitSabariya/React/tree/main/Hooks/01-Usestate%28counter%29)                 | Basic counter using **useState**          |
+| 02 | 🃏 [useEffect LoadCards](https://github.com/AnkitSabariya/React/tree/main/Hooks/02-UseEffect%28LoadCards%29)           | Fetch & render cards with **useEffect**   |
+| 03 | 🎬 [useRef Video Player](https://github.com/AnkitSabariya/React/tree/main/Hooks/03-UseRef%28VideoPlayer%29)            | Control video with **useRef**             |
+| 04 | 🔑 [useNavigate Login/SignUp](https://github.com/AnkitSabariya/React/tree/main/Hooks/04-UseNavigate%28Login-Signup%29) | Programmatic navigation with login/signup |
+| 05 | 🛠️ [useCustom Hook](https://github.com/AnkitSabariya/React/tree/main/Hooks/05-useCustom)                              | Practice building custom hooks            |
+
 
 ---
 
